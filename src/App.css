@@ -1,0 +1,20 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: cursive;
+}
+
+:root {
+  --background-color: #2e0776;
+  --background-container-color: linear-gradient(
+    to left,
+    #2e0776,
+    #370593,
+    #4308b0
+  );
+  --container-color: #470853;
+}
+.App {
+  padding: 5px 10px;
+}

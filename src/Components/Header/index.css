@@ -1,0 +1,68 @@
+/* mobileview.jsx file styles */
+
+.header-user-profile-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+}
+.user-profile-main-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.user-profile-container {
+  height: 46px;
+  width: 46px;
+  position: relative;
+  border: 2px green solid;
+  border-radius: 50px;
+}
+.user-profile {
+  height: 40px;
+  position: absolute;
+  top: 3%;
+  left: 1%;
+}
+
+.navlinks-container {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.navlinks-container > li > button {
+  background-color: var(--maincolor);
+  outline: none;
+  border: none;
+  padding: 5px 10px 5px 10px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  transition: ease all 0.4s;
+  &:hover {
+    background-color: var(--container-color);
+    color: #000;
+  }
+}
+
+.mode-button {
+  background-color: #000;
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 40px;
+  font-size: 15px;
+  padding: 8px 9px 6px 9px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+  transition: all ease 0.4s;
+  &:hover {
+    background-color: #fff;
+    color: #000;
+    border: solid 1px #000;
+  }
+}

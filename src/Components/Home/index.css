@@ -1,0 +1,146 @@
+.home-main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* salary-percentage.jsx file styling */
+
+.remaing-salary-percentage-main-container {
+  height: 130px;
+  background: var(--background-container-color);
+  margin-top: 5px;
+  padding: 22px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+}
+
+.salary-percentage-main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.remaing-salary-container-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  align-items: start;
+  color: #fff;
+}
+.remaing-salary-container-content > p {
+  font-size: 14px;
+}
+.remaing-salary-container-content > button {
+  font-weight: 550;
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.salary-percentage-container {
+  background-image: conic-gradient(
+    from 90deg,
+    #fff 270deg,
+    rgba(128, 128, 128, 0.402) 90deg
+  );
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.salary-percentage-inner-container {
+  background-color: var(--background-color);
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 500;
+}
+
+.salary-percentage-main-container > button {
+  background-color: #ffffff68;
+  height: 20px;
+  padding: 0px 3px 1px 3px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+/* spendGroups.jsx file styling */
+
+.spend-groups-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0px 3px;
+}
+
+.spend-groups-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 15px;
+  border: solid black 1px;
+  border-radius: 15px;
+}
+
+.spend-groups-left-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.spend-groups-left-container > .left-image-container {
+  font-size: 20px;
+}
+
+.spend-groups-left-container > .left-content-container {
+  font-size: 12px;
+}
+.spend-groups-left-container > .left-content-container > .group-name {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.spend-groups-right-container {
+  background-image: conic-gradient(from 90deg, #000 270deg, #514e4e89 90deg);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spend-groups-right-inner-container {
+  background-color: #fff;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
