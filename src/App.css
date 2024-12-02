@@ -13,8 +13,14 @@
     #370593,
     #4308b0
   );
+  --card-bg: #53378848;
   --container-color: #470853;
 }
 .App {
   padding: 5px 10px;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
