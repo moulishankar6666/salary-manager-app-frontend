@@ -1,6 +1,6 @@
 import "./index.css";
 
-const Calandar = () => {
+const Calendar = () => {
   return <div>calandar</div>;
 };
-export default Calandar;
+export default Calendar;
