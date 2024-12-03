@@ -2,7 +2,7 @@ import "./index.css";
 
 import logo from "../assets/app logo.png";
 
-import { FaMoon } from "react-icons/fa6";
+import { IoNotifications } from "react-icons/io5";
 
 const UserProfile = () => {
   return (
@@ -16,7 +16,7 @@ const UserProfile = () => {
           <h5>Mouli Shankar</h5>
         </div>
       </div>
-      <button className="mode-button">{<FaMoon />}</button>
+      <button className="mode-button">{<IoNotifications />}</button>
     </div>
   );
 };

@@ -6,18 +6,24 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { FaClipboardList } from "react-icons/fa";
 import { IoPersonCircle } from "react-icons/io5";
 
+import { Link } from "react-router";
+
 const FooterNav = () => {
   return (
     <div className="footer-nav-main-container">
       <ul className="footer-nav-links-container">
         <li>
           <button>
-            <FaHome size={22} />
+            <Link to="/home ">
+              <FaHome size={22} />
+            </Link>
           </button>
         </li>
         <li>
           <button>
-            <FaCalendarAlt />
+            <Link to="/calandar">
+              <FaCalendarAlt />
+            </Link>
           </button>
         </li>
         <li>
