@@ -97,6 +97,9 @@
   padding: 0px 3px;
 }
 
+.spend-groups-main-container > h3 {
+  font-weight: bolder;
+}
 .spend-groups-container {
   display: flex;
   justify-content: space-between;
@@ -151,6 +154,11 @@
 .recent-spends-main-container {
   /* border: solid #000 1px; */
   padding: 5px 3px;
+}
+
+.recent-spends-main-container > h3 {
+  /* border: solid #000 1px; */
+  font-weight: bolder;
 }
 
 .recent-spends-main-container > ul {

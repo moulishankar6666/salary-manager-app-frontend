@@ -66,3 +66,22 @@
     border: solid 1px #000;
   }
 }
+
+/* calendarSection.jsx file styling */
+
+.calendar-section-header-main-container {
+  height: 50px;
+  border-bottom: #000 solid 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.calendar-section-header-main-container > button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 25px;
+  cursor: pointer;
+}

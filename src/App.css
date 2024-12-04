@@ -19,6 +19,9 @@
 .App {
   padding: 5px 10px;
   user-select: none;
+  background-color: #fff;
+  min-height: 100vh;
+  width: 100vw;
 }
 
 ::-webkit-scrollbar {

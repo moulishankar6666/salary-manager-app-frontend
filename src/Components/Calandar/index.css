@@ -1,0 +1,40 @@
+.calendar-section-main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* calendarDates.jsx file styling */
+
+.calendar-dates-main-container {
+  border: solid black 1px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-dates-main-container > li {
+  border: solid red 1px;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.calendar-dates-main-container > li > .month {
+  font-weight: bolder;
+  font-size: 10px;
+}
+
+.calendar-dates-main-container > li > .date {
+  font-weight: bolder;
+  font-size: 25px;
+}
+.calendar-dates-main-container > li > .day {
+  font-weight: bolder;
+  font-size: 10px;
+}
