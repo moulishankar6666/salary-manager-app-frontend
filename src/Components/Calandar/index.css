@@ -7,22 +7,24 @@
 /* calendarDates.jsx file styling */
 
 .calendar-dates-main-container {
-  border: solid black 1px;
   list-style: none;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: start;
   align-items: center;
+  gap: 10px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
 }
 
 .calendar-dates-main-container > li {
-  border: solid red 1px;
-  width: 50px;
+  min-width: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  padding: 5px;
 }
 
 .calendar-dates-main-container > li > .month {
@@ -37,4 +39,15 @@
 .calendar-dates-main-container > li > .day {
   font-weight: bolder;
   font-size: 10px;
+}
+.active {
+  background-color: var(--background-color);
+  color: #fff;
+  scroll-snap-align: center;
+}
+
+.in-active {
+  background-color: #fff;
+  color: #000;
+  border: solid #000 1px;
 }
