@@ -7,6 +7,14 @@
 /* calendarDates.jsx file styling */
 
 .calendar-dates-main-container {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  transition: all ease-in 0.1s;
+}
+
+.calendar-dates-main-container > ul {
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -17,7 +25,20 @@
   scroll-snap-type: x mandatory;
 }
 
-.calendar-dates-main-container > li {
+.calendar-dates-main-container > .year-container {
+  background-color: var(--background-color);
+  width: 25px;
+  text-align: center;
+  border-top-right-radius: 9px;
+  border-bottom-right-radius: 9px;
+  color: #fff;
+  position: absolute;
+
+  padding: 5px;
+  font-size: 12px;
+}
+
+.calendar-dates-main-container > ul > li {
   min-width: 50px;
   display: flex;
   flex-direction: column;
@@ -27,16 +48,16 @@
   padding: 5px;
 }
 
-.calendar-dates-main-container > li > .month {
+.calendar-dates-main-container > ul > li > .month {
   font-weight: bolder;
   font-size: 10px;
 }
 
-.calendar-dates-main-container > li > .date {
+.calendar-dates-main-container > ul > li > .date {
   font-weight: bolder;
   font-size: 25px;
 }
-.calendar-dates-main-container > li > .day {
+.calendar-dates-main-container > ul > li > .day {
   font-weight: bolder;
   font-size: 10px;
 }
@@ -50,4 +71,69 @@
   background-color: #fff;
   color: #000;
   border: solid #000 1px;
+}
+
+/* daySpends.jsx file styling */
+.day-spends-main-container {
+  width: 100%;
+  display: flex;
+  height: 60vh;
+  overflow: scroll;
+  margin-top: 10px;
+}
+.day-spends-main-container > ul {
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.day-spends-main-container > ul > li {
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  background-color: var(--card-bg);
+  gap: 15px;
+}
+.day-spends-main-container > ul > li > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.day-spends-main-container > ul > li > div > .spend-type-color {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 4px;
+}
+
+.day-spends-main-container > ul > li > div > .spend-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: end;
+  gap: 4px;
+}
+.day-spends-main-container > ul > li > div > button {
+  width: 70px;
+  height: 28px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all ease 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 3px 4px #000;
+  }
 }

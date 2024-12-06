@@ -71,7 +71,7 @@
 
 .calendar-section-header-main-container {
   height: 50px;
-  border-bottom: #000 solid 1px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
