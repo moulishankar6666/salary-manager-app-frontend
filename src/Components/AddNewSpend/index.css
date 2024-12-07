@@ -8,8 +8,13 @@
 .add-new-spend-main-container > img {
   order: -1;
   height: 25em;
+  display: none;
 }
-
+@media screen and (min-width: 768px) {
+  .add-new-spend-main-container > img {
+    display: inline;
+  }
+}
 .add-new-spend-main-container > form {
   display: flex;
   justify-content: space-around;
@@ -19,7 +24,7 @@
   background-color: var(--card-bg);
   border-radius: 16px;
   max-width: 600px;
-  height: 90%;
+  min-height: 90%;
   padding: 20px;
 }
 .add-new-spend-main-container > form > div {
