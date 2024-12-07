@@ -34,3 +34,6 @@
     color: #000;
   }
 }
+.footer-nav-links-container > li > button > .link {
+  color: var(--background-color);
+}

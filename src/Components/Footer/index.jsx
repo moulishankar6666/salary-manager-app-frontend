@@ -14,31 +14,37 @@ const FooterNav = () => {
       <ul className="footer-nav-links-container">
         <li>
           <button>
-            <Link to="/home ">
+            <Link className="link" to="/home ">
               <FaHome size={22} />
             </Link>
           </button>
         </li>
         <li>
           <button>
-            <Link to="/calandar">
+            <Link className="link" to="/calandar">
               <FaCalendarAlt />
             </Link>
           </button>
         </li>
         <li>
           <button>
-            <FaCirclePlus />
+            <Link className="link" to="/addSpend">
+              <FaCirclePlus />
+            </Link>
           </button>
         </li>
         <li>
           <button>
-            <FaClipboardList />
+            <Link className="link" to="/addSpend">
+              <FaClipboardList />
+            </Link>
           </button>
         </li>
         <li>
           <button>
-            <IoPersonCircle size={25} />
+            <Link className="link" to="/addSpend">
+              <IoPersonCircle size={25} />
+            </Link>
           </button>
         </li>
       </ul>

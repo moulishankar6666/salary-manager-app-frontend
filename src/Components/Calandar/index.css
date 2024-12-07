@@ -77,7 +77,7 @@
 .day-spends-main-container {
   width: 100%;
   display: flex;
-  height: 60vh;
+  min-height: calc(100vh - 220px);
   overflow: scroll;
   margin-top: 10px;
 }
@@ -95,7 +95,7 @@
   padding: 10px 20px;
   text-align: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: start;
   background-color: var(--card-bg);
@@ -104,12 +104,14 @@
 .day-spends-main-container > ul > li > div {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
+  gap: 10px;
 }
 .day-spends-main-container > ul > li > div > .spend-type-color {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: start;
   justify-content: start;
   gap: 4px;
@@ -117,12 +119,22 @@
 
 .day-spends-main-container > ul > li > div > .spend-amount {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: end;
   justify-content: end;
   gap: 4px;
+  color: green;
 }
-.day-spends-main-container > ul > li > div > button {
+.day-spends-main-container > ul > li > .edit-button-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+}
+.day-spends-main-container > ul > li > .edit-button-container > button {
+  background-color: var(--background-color);
+  color: #fff;
   width: 70px;
   height: 28px;
   border-radius: 5px;
@@ -131,9 +143,11 @@
   font-weight: 600;
   cursor: pointer;
   transition: all ease 0.2s;
+  box-shadow: 3px 4px #716e6e;
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 3px 4px #000;
+    transform: translate(4px, 3px);
+
+    box-shadow: 0px 0px grey;
   }
 }

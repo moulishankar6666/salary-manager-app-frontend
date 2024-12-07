@@ -12,22 +12,15 @@ const DaySpends = () => {
             </div>
             <h5>Invested in SIP</h5>
             <div className="spend-amount">
-              <p>25%</p>
               <p>5000/-</p>
+              <p>(25%)</p>
             </div>
           </div>
-          <div>
-            <button>Edit</button>
+          <div className="edit-button-container">
             <p>11:10 am</p>
+            <button>Edit</button>
           </div>
         </li>
-        <li>Hello</li>
-        <li>Hello</li>
-        <li>Hello</li>
-        <li>Hello</li>
-        <li>Hello</li>
-        <li>Hello</li>
-        <li>Hello</li>
       </ul>
     </div>
   );
