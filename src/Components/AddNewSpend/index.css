@@ -14,6 +14,9 @@
   .add-new-spend-main-container > img {
     display: inline;
   }
+  .add-new-spend-main-container > form {
+    width: 400px;
+  }
 }
 .add-new-spend-main-container > form {
   display: flex;
@@ -23,9 +26,13 @@
   gap: 15px;
   background-color: var(--card-bg);
   border-radius: 16px;
-  max-width: 600px;
+  min-width: 350px;
   min-height: 90%;
   padding: 20px;
+  flex-shrink: 2;
+}
+.add-new-spend-main-container > form > h1 {
+  font-size: 15px;
 }
 .add-new-spend-main-container > form > div {
   width: 100%;
@@ -42,6 +49,7 @@
   border: none;
   padding: 3px 10px;
   border-radius: 10px;
+  width: 100%;
 }
 
 .add-new-spend-main-container > form > button {
