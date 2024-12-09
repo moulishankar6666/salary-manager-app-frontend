@@ -1,0 +1,24 @@
+.month-wise-spends-main-container {
+  display: flex;
+  flex-direction: column;
+}
+.monthly-list-of-spends-container {
+  height: calc(100vh - 110px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+.monthly-list-of-spends-container > ul {
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  padding-bottom: 5px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+}
+.monthly-list-of-spends-container > ul > li {
+  border: #000 solid;
+}

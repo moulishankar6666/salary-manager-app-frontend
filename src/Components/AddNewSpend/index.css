@@ -4,6 +4,7 @@
   justify-content: space-around;
   align-items: center;
   gap: 20px;
+  padding: 0px 10px;
 }
 .add-new-spend-main-container > img {
   order: -1;
@@ -15,7 +16,7 @@
     display: inline;
   }
   .add-new-spend-main-container > form {
-    width: 400px;
+    max-width: 400px;
   }
 }
 .add-new-spend-main-container > form {
@@ -26,8 +27,8 @@
   gap: 15px;
   background-color: var(--card-bg);
   border-radius: 16px;
-  min-width: 350px;
-  min-height: 90%;
+  width: 90%;
+  min-height: 80%;
   padding: 20px;
   flex-shrink: 2;
 }

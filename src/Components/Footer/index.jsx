@@ -35,7 +35,7 @@ const FooterNav = () => {
         </li>
         <li>
           <button>
-            <Link className="link" to="/addSpend">
+            <Link className="link" to="/monthlyspends">
               <FaClipboardList />
             </Link>
           </button>
