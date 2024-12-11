@@ -26,7 +26,7 @@ const AddSpend = () => {
       selectedTime[0], //hour
       selectedTime[1] //minute
     );
-    return userSelectedDatetime.toString();
+    return userSelectedDatetime.toString().slice(4, 24);
   };
 
   const datetime = userdatetime();
@@ -59,6 +59,7 @@ const AddSpend = () => {
         settime(today.toString().split(" ")[4].slice(0, 5));
         setspendname("");
         setamout("");
+        setError("");
         alert(response.response);
       } else {
         setError(response.error);
