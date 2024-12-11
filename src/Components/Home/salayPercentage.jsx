@@ -5,7 +5,7 @@ const RemaingSalaryPercentage = () => {
     <div className="remaing-salary-percentage-main-container">
       <div className="remaing-salary-container-content">
         <p>
-          This month your <br /> remaining salary
+          This month your <br /> Remaining salary
         </p>
         <button>ViewAll Spends</button>
       </div>
