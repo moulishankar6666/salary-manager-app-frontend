@@ -58,7 +58,7 @@ const MonthWiseSpends = () => {
   const loading = () => {
     return <p>Loading...</p>;
   };
-  alert(error);
+
   const success = () => {
     return (
       <>
@@ -89,6 +89,7 @@ const MonthWiseSpends = () => {
   };
 
   const failure = () => {
+    alert(error);
     return <p>something went wrong please check</p>;
   };
 
