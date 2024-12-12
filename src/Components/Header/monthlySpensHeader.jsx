@@ -1,17 +1,17 @@
 import { Link } from "react-router";
 
 import { IoArrowBackCircle } from "react-icons/io5";
-import { useState } from "react";
 
-const today = new Date();
-const [presentmonth, , year] = today
-  .toLocaleString()
-  .split(" ")[0]
-  .split("/")
-  .slice(0, 3);
+// const today = new Date();
+// const [presentmonth, , year] = today
+//   .toLocaleString()
+//   .split(" ")[0]
+//   .split("/")
+//   .slice(0, 3);
 
-const MonthlySpendsHeader = () => {
-  const [month, setMonth] = useState(`${year.slice(0, 4)}-${presentmonth}`);
+const MonthlySpendsHeader = (props) => {
+  const [month, setMonth] = props.date;
+
   const setSelectMonth = (e) => {
     setMonth(e.target.value);
   };

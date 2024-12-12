@@ -17,7 +17,7 @@
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  gap: 200px;
+  gap: 20px;
 }
 .monthly-list-of-spends-container > ul > li {
   border: #000 solid;

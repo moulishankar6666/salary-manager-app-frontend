@@ -26,7 +26,13 @@ const AddSpend = () => {
       selectedTime[0], //hour
       selectedTime[1] //minute
     );
-    return userSelectedDatetime.toString().slice(4, 24);
+    const DT = userSelectedDatetime.toString().split(" ");
+    const DTLocal = userSelectedDatetime
+      .toLocaleString()
+      .split(" ")[0]
+      .split("/");
+
+    return `${DTLocal[2].slice(0, 4)}-${DTLocal[0]}-${DTLocal[1]} ${DT[4]}`;
   };
 
   const datetime = userdatetime();
