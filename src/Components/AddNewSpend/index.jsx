@@ -55,23 +55,29 @@ const AddSpend = () => {
 
   const onSubmitNewSpend = async (e) => {
     e.preventDefault();
-    if (spendname && spendtype && amount && time) {
-      const data = await fetch(
-        "https://salary-manager-app-frontend.onrender.com/addspend",
-        options
-      );
-      const response = await data.json();
-      if (data.ok) {
-        settime(today.toString().split(" ")[4].slice(0, 5));
-        setspendname("");
-        setamout("");
-        setError("");
-        alert(response.response);
+    try {
+      if (spendname && spendtype && amount && time) {
+        const data = await fetch(
+          "https://salary-manager-app-frontend.onrender.com/addspend",
+          options
+        );
+
+        if (data.ok) {
+          settime(today.toString().split(" ")[4].slice(0, 5));
+          setspendname("");
+          setamout("");
+          setError("");
+          alert("Added successfully");
+        }
       } else {
-        setError(response.error);
+        setError("Fill all fields");
       }
-    } else {
-      setError("Fill all fields");
+    } catch (error) {
+      setError(
+        error.message === "Failed to fetch"
+          ? "Check your Internet connection"
+          : error.message
+      );
     }
   };
 

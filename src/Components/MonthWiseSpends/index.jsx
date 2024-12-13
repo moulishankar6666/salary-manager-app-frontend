@@ -35,31 +35,29 @@ const MonthWiseSpends = () => {
     },
   };
 
-  useEffect(() => {
+  const getspends = async () => {
+    setStatus(apiStatus.loading);
     try {
-      async function getspends() {
-        setStatus(apiStatus.loading);
-        const data = await fetch(
-          `https://salary-manager-app-frontend.onrender.com/monthspends/${month}`,
-          options
-        );
-        console.log(data);
-        if (data.ok) {
-          const response = await data.json();
-          setMonthspends(response.response);
-          setStatus(apiStatus.success);
-        }
-        if (data.status === 404) {
-          const response = await data.json();
-          setError(response.error);
-          setStatus(apiStatus.failure);
-        }
+      const data = await fetch(
+        `https://salary-manger-backend.onrender.com/monthspends/${month}`,
+        options
+      );
+      const response = await data.json();
+      if (data.ok) {
+        setMonthspends(response.response);
+        setStatus(apiStatus.success);
+      } else {
+        setError("Something went wrong");
+        setStatus(apiStatus.failure);
       }
-      getspends();
     } catch (error) {
       setError(error.message);
       setStatus(apiStatus.failure);
     }
+  };
+
+  useEffect(() => {
+    getspends();
   }, [month]);
 
   const loading = () => {
@@ -100,9 +98,11 @@ const MonthWiseSpends = () => {
   };
 
   const failure = () => {
-    alert(error);
     return (
-      <p className="center-the-content">something went wrong please check</p>
+      <div className="center-the-content">
+        <p>{error}</p>
+        <button onClick={getspends}>Retry</button>
+      </div>
     );
   };
 
