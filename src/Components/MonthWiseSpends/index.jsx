@@ -45,7 +45,7 @@ const MonthWiseSpends = () => {
       const response = await data.json();
       if (data.ok) {
         setMonthspends(response.response);
-        // setStatus(apiStatus.success);
+        setStatus(apiStatus.success);
       } else {
         setError("Something went wrong");
         setStatus(apiStatus.failure);
