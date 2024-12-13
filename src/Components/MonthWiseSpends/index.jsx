@@ -121,7 +121,7 @@ const MonthWiseSpends = () => {
 
   return (
     <div className="month-wise-spends-main-container">
-      <MonthlySpendsHeader date={[month, setMonth]} />
+      <MonthlySpendsHeader date={[month, setMonth, getspends]} />
       <div className="monthly-list-of-spends-container">
         <ul>{renderSpends()}</ul>
       </div>

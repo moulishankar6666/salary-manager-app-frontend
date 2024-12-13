@@ -1,16 +1,10 @@
 import { Link } from "react-router";
 
 import { IoArrowBackCircle } from "react-icons/io5";
-
-// const today = new Date();
-// const [presentmonth, , year] = today
-//   .toLocaleString()
-//   .split(" ")[0]
-//   .split("/")
-//   .slice(0, 3);
+import { IoMdRefreshCircle } from "react-icons/io";
 
 const MonthlySpendsHeader = (props) => {
-  const [month, setMonth] = props.date;
+  const [month, setMonth, getSpends] = props.date;
 
   const setSelectMonth = (e) => {
     setMonth(e.target.value);
@@ -23,11 +17,19 @@ const MonthlySpendsHeader = (props) => {
           <IoArrowBackCircle />
         </Link>
       </button>
+
       <h3>Month wise spends</h3>
-      <div className="select-month">
-        <label htmlFor="selectmonth">Select Month</label>
+
+      <div className="header-right">
+        <div className="refresh-container">
+          <button onClick={getSpends}>
+            <IoMdRefreshCircle size={25} />
+          </button>
+          <p>Refresh</p>
+        </div>
+
         <input
-          id="selectmonth"
+          className="select-month"
           value={month}
           onChange={setSelectMonth}
           type="month"

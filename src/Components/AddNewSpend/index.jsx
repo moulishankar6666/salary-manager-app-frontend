@@ -61,7 +61,8 @@ const AddSpend = () => {
           "https://salary-manager-app-frontend.onrender.com/addspend",
           options
         );
-
+        alert(data);
+        console.log(data);
         if (data.ok) {
           settime(today.toString().split(" ")[4].slice(0, 5));
           setspendname("");

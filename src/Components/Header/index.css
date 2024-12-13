@@ -105,6 +105,7 @@
   font-size: 15px;
   text-align: center;
 }
+
 .monthly-spends-main-container > button {
   background-color: transparent;
   border: none;
@@ -114,13 +115,28 @@
   width: 50px;
   padding: 9px 2px 0px 2px;
 }
-.monthly-spends-main-container > .select-month {
+.monthly-spends-main-container > .header-right {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-end;
+  justify-content: center;
   gap: 5px;
 }
-.monthly-spends-main-container > .select-month > label {
+.monthly-spends-main-container > .header-right > .refresh-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 110px;
+}
+.monthly-spends-main-container > .header-right > .refresh-container > button {
+  background-color: transparent;
+  height: 22px;
+  border: none;
+  cursor: pointer;
+  color: var(--background-color);
+}
+
+.monthly-spends-main-container > .header-right > .refresh-container > p {
   font-size: 11px;
   font-weight: 600;
   margin-left: 5px;
@@ -129,7 +145,7 @@
   cursor: pointer;
 }
 
-.monthly-spends-main-container > .select-month > input {
+.monthly-spends-main-container > .header-right > .select-month {
   font-size: 10px;
   width: 110px;
   height: 20px;
