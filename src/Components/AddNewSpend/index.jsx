@@ -72,7 +72,7 @@ const AddSpend = () => {
     try {
       if (spendname && spendtype && time && amount) {
         const data = await fetch(
-          "https://salary-manager-app-frontend.onrender.com/addspend",
+          "https://salary-manger-backend.onrender.com/addspend",
           options
         );
         console.log(await data.json());
@@ -88,7 +88,11 @@ const AddSpend = () => {
         setError("Fill all fields");
       }
     } catch (error) {
-      setError(error.message);
+      setError(
+        error.message === "Failed to fetch"
+          ? "Check your Internet connection"
+          : error.message
+      );
     }
   };
 

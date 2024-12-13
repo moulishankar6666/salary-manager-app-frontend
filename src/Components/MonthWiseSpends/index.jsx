@@ -45,7 +45,7 @@ const MonthWiseSpends = () => {
       const response = await data.json();
       if (data.ok) {
         setMonthspends(response.response);
-        setStatus(apiStatus.success);
+        // setStatus(apiStatus.success);
       } else {
         setError("Something went wrong");
         setStatus(apiStatus.failure);
@@ -61,8 +61,16 @@ const MonthWiseSpends = () => {
   }, [month]);
 
   const loading = () => {
-    return <p className="center-the-content">Loading...</p>;
+    return (
+      <div className="center-the-content">
+        <div className="Loader-spinner-outer">
+          <div className="loader-spinner-inner">0</div>
+        </div>
+      </div>
+    );
   };
+
+  const onDeleteById = () => [];
 
   const success = () => {
     return (
@@ -85,7 +93,7 @@ const MonthWiseSpends = () => {
                 </div>
                 <div className="edit-button-container">
                   <p>{datetime}</p>
-                  <button>Delete</button>
+                  <button onClick={onDeleteById}>Delete</button>
                 </div>
               </li>
             );
