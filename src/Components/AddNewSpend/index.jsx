@@ -53,6 +53,16 @@ const AddSpend = () => {
     }),
   };
 
+  const setCheckedamount = (e) => {
+    if (Number.isInteger(parseInt(e.target.value))) {
+      setamout(e.target.value);
+      setError("");
+    } else {
+      setamout(e.target.value);
+      setError("Enter amount in Digits");
+    }
+  };
+
   const onSubmitNewSpend = async (e) => {
     e.preventDefault();
     try {
@@ -120,11 +130,7 @@ const AddSpend = () => {
           <label>HOW MUCH YOU SPEND ?</label>
           <input
             value={amount}
-            onChange={(e) =>
-              Number.isInteger(parseInt(e.target.value))
-                ? setamout(e.target.value)
-                : setError("Enter Number")
-            }
+            onChange={setCheckedamount}
             placeholder="Enter amount"
             className="input"
             type="text"
