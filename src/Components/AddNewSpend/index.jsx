@@ -82,7 +82,6 @@ const AddSpend = () => {
           setamout("");
           setError("");
           alert("Added successfully");
-          new Notification("Added successfully");
         }
       } else {
         setError("Fill all fields");
