@@ -56,7 +56,7 @@ const AddSpend = () => {
   const onSubmitNewSpend = async (e) => {
     e.preventDefault();
     try {
-      if (spendname && spendtype && amount && time) {
+      if (spendname && spendtype && time) {
         const data = await fetch(
           "https://salary-manager-app-frontend.onrender.com/addspend",
           options
@@ -120,7 +120,11 @@ const AddSpend = () => {
           <label>HOW MUCH YOU SPEND ?</label>
           <input
             value={amount}
-            onChange={(e) => setamout(e.target.value)}
+            onChange={(e) =>
+              Number.isInteger(e.target.value)
+                ? setamout(e.target.value)
+                : setError("Enter Number")
+            }
             placeholder="Enter amount"
             className="input"
             type="text"
