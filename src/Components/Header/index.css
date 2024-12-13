@@ -101,13 +101,18 @@
   /* border-bottom: solid #000 1px; */
   padding: 3px 0px;
 }
+.monthly-spends-main-container > h3 {
+  font-size: 15px;
+  text-align: center;
+}
 .monthly-spends-main-container > button {
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
   font-size: 30px;
-  margin-right: 50px;
+  width: 50px;
+  padding: 9px 2px 0px 2px;
 }
 .monthly-spends-main-container > .select-month {
   display: flex;

@@ -57,7 +57,7 @@ const AddSpend = () => {
     e.preventDefault();
     if (spendname && spendtype && amount && time) {
       const data = await fetch(
-        "https://salary-manger-backend.onrender.com/addspend",
+        "https://salary-manager-app-frontend.onrender.com/addspend",
         options
       );
       const response = await data.json();
