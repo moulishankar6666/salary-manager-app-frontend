@@ -121,7 +121,7 @@ const AddSpend = () => {
           <input
             value={amount}
             onChange={(e) =>
-              Number.isInteger(e.target.value)
+              Number.isInteger(parseInt(e.target.value))
                 ? setamout(e.target.value)
                 : setError("Enter Number")
             }
