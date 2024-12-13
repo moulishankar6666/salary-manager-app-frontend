@@ -1,26 +1,11 @@
-import { MdSavings } from "react-icons/md";
+import SpendItem from "../SpendItem";
 
 const DaySpends = () => {
+  const spendname = "ate dosa";
   return (
     <div className="day-spends-main-container">
       <ul>
-        <li>
-          <div>
-            <div className="spend-type-color">
-              <MdSavings size={20} />
-              <p>Savings</p>
-            </div>
-            <h5>Invested in SIP</h5>
-            <div className="spend-amount">
-              <p>5000/-</p>
-              <p>(25%)</p>
-            </div>
-          </div>
-          <div className="edit-button-container">
-            <p>11:10 am</p>
-            <button>Edit</button>
-          </div>
-        </li>
+        <SpendItem item={{ spendname }} />
       </ul>
     </div>
   );

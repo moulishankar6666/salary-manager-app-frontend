@@ -18,10 +18,9 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding-bottom: 20px;
 }
-.monthly-list-of-spends-container > ul > li {
-  border: #000 solid;
-}
+
 .center-the-content {
   display: flex;
   flex-direction: column;

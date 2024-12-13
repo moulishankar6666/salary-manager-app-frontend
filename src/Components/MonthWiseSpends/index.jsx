@@ -2,6 +2,9 @@ import "./index.css";
 
 import FooterNav from "../Footer";
 import MonthlySpendsHeader from "../Header/monthlySpensHeader";
+import SpendItem from "../SpendItem";
+
+//hooks
 import { useEffect, useState } from "react";
 
 const apiStatus = {
@@ -78,25 +81,7 @@ const MonthWiseSpends = () => {
         {monthspends.length > 0 ? (
           monthspends.map((each) => {
             const { spendid, spendtype, spendname, amount, datetime } = each;
-            return (
-              <li key={spendid}>
-                <div>
-                  <div className="spend-type-color">
-                    {/* <MdSavings size={20} /> */}
-                    <p>{spendtype}</p>
-                  </div>
-                  <h5>{spendname}</h5>
-                  <div className="spend-amount">
-                    <p>{`${amount}`}</p>
-                    <p>(25%)</p>
-                  </div>
-                </div>
-                <div className="edit-button-container">
-                  <p>{datetime}</p>
-                  <button onClick={onDeleteById}>Delete</button>
-                </div>
-              </li>
-            );
+            return <SpendItem item={{ spendname }} />;
           })
         ) : (
           <p className="center-the-content">No spends in this month</p>
