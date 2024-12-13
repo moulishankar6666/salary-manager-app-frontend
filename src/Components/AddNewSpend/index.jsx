@@ -54,41 +54,41 @@ const AddSpend = () => {
   };
 
   const setCheckedamount = (e) => {
-    if (Number.isInteger(parseInt(e.target.value))) {
+    const enteredAmount = e.target.value;
+    const isDigit = enteredAmount
+      .split("")
+      .every((a) => Number.isInteger(parseInt(a)));
+    if (isDigit) {
       setamout(e.target.value);
       setError("");
-    } else {
-      setamout(e.target.value);
+    } else if (e.target.value.length > 0) {
       setError("Enter amount in Digits");
+      setamout(e.target.value);
     }
   };
 
   const onSubmitNewSpend = async (e) => {
     e.preventDefault();
     try {
-      if (spendname && spendtype && time) {
+      if (spendname && spendtype && time && amount) {
         const data = await fetch(
           "https://salary-manager-app-frontend.onrender.com/addspend",
           options
         );
-        alert(data);
-        console.log(data);
+        console.log(await data.json());
         if (data.ok) {
           settime(today.toString().split(" ")[4].slice(0, 5));
           setspendname("");
           setamout("");
           setError("");
           alert("Added successfully");
+          new Notification("Added successfully");
         }
       } else {
         setError("Fill all fields");
       }
     } catch (error) {
-      setError(
-        error.message === "Failed to fetch"
-          ? "Check your Internet connection"
-          : error.message
-      );
+      setError(error.message);
     }
   };
 
