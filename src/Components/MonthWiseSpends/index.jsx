@@ -73,15 +73,17 @@ const MonthWiseSpends = () => {
     );
   };
 
-  const onDeleteById = () => [];
-
   const success = () => {
     return (
       <>
         {monthspends.length > 0 ? (
           monthspends.map((each) => {
             const { spendid, spendtype, spendname, amount, datetime } = each;
-            return <SpendItem item={{ spendname }} />;
+            return (
+              <SpendItem
+                item={{ spendid, spendtype, spendname, amount, datetime }}
+              />
+            );
           })
         ) : (
           <p className="center-the-content">No spends in this month</p>

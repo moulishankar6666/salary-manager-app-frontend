@@ -1,9 +1,5 @@
-import { useState } from "react";
-
-const CalendarDates = () => {
-  const [activeDate, setActiveDate] = useState(
-    new Date().toString().split(" ")
-  );
+const CalendarDates = (props) => {
+  const { activeDate, setActiveDate } = props.selectedDate;
 
   const today = new Date(activeDate.slice(1, 4));
   const arr = [
@@ -23,7 +19,6 @@ const CalendarDates = () => {
     const day = date[2][0] === "0" ? date[2][1] : date[2];
 
     const isactive = date[2] === activeDate[2] ? "True" : null;
-
     return (
       <li
         key={i}
