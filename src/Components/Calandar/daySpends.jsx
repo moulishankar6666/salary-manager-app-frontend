@@ -1,4 +1,5 @@
 import SpendItem from "../SpendItem";
+import Loader from "../Loader";
 
 const apiStatus = {
   Initial: "INITIAL",
@@ -13,14 +14,10 @@ const DaySpends = (props) => {
   const loading = () => {
     return (
       <div className="center-the-content">
-        <div className="Loader-spinner-outer">
-          <div className="loader-spinner-inner">0</div>
-        </div>
+        <Loader />
       </div>
     );
   };
-
-  const onDeleteById = () => [];
 
   const success = () => {
     return (
@@ -30,7 +27,8 @@ const DaySpends = (props) => {
             const { spendid, spendtype, spendname, amount, datetime } = each;
             return (
               <SpendItem
-                item={{ spendid, spendtype, spendname, amount, datetime }}
+                key={spendid}
+                item={{ spendtype, spendname, amount, datetime }}
               />
             );
           })

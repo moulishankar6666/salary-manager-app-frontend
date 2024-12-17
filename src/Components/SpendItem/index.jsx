@@ -11,11 +11,11 @@ const spendTypeLogo = {
 };
 
 const SpendItem = (props) => {
-  const { spendid, spendtype, spendname, amount, datetime } = props.item;
+  const { spendtype, spendname, amount, datetime } = props.item;
   // const date = datetime.split(" ")[0].split("-");
   const time = datetime.split(" ")[1].slice(0, 5);
   return (
-    <li key={spendid} className="spend-item-main-container">
+    <li className="spend-item-main-container">
       <div>
         <div className="spend-type-color">
           {spendTypeLogo[spendtype]}

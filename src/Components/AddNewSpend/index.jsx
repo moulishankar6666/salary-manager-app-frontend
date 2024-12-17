@@ -4,6 +4,14 @@ import windowPoster from "../assets/destop poster.png";
 
 import FooterNav from "../Footer";
 import { useState } from "react";
+import Loader from "../Loader";
+
+const apiStatus = {
+  Initial: "INITIAL",
+  loading: "LOADING",
+  success: "SUCCESS",
+  failure: "FAILURE",
+};
 
 const today = new Date();
 
@@ -13,6 +21,7 @@ const AddSpend = () => {
   const [amount, setamout] = useState("");
   const [time, settime] = useState(today.toString().split(" ")[4].slice(0, 5));
   const [error, setError] = useState("");
+  const [status, setStatus] = useState(apiStatus.Initial);
 
   //converting present time to user selected time
 
@@ -70,21 +79,25 @@ const AddSpend = () => {
   const onSubmitNewSpend = async (e) => {
     e.preventDefault();
     try {
-      if (spendname && spendtype && time && amount) {
-        const data = await fetch(
-          "https://salary-manger-backend.onrender.com/addspend",
-          options
-        );
-        console.log(await data.json());
-        if (data.ok) {
-          settime(today.toString().split(" ")[4].slice(0, 5));
-          setspendname("");
-          setamout("");
-          setError("");
-          alert("Added successfully");
+      if (!error) {
+        if (spendname && spendtype && time && amount) {
+          setStatus(apiStatus.loading);
+          const data = await fetch(
+            "https://salary-manger-backend.onrender.com/addspend",
+            options
+          );
+
+          if (data.ok) {
+            settime(today.toString().split(" ")[4].slice(0, 5));
+            setspendname("");
+            setamout("");
+            setError("");
+            setStatus(apiStatus.success);
+            alert("Added Successfully");
+          }
+        } else {
+          setError("Fill all fields");
         }
-      } else {
-        setError("Fill all fields");
       }
     } catch (error) {
       setError(
@@ -96,55 +109,62 @@ const AddSpend = () => {
   };
 
   return (
-    <div className="add-new-spend-main-container">
-      <form onSubmit={onSubmitNewSpend}>
-        <h1>ADD NEW SPEND</h1>
-        <div>
-          <label>NAME OF SPEND</label>
-          <input
-            placeholder="Enter name of spend"
-            className="input"
-            value={spendname}
-            onChange={(e) => setspendname(e.target.value)}
-          />
+    <>
+      <div className="add-new-spend-main-container">
+        <form onSubmit={onSubmitNewSpend}>
+          <h1>ADD NEW SPEND</h1>
+          <div>
+            <label>NAME OF SPEND</label>
+            <input
+              placeholder="Enter name of spend"
+              className="input"
+              value={spendname}
+              onChange={(e) => setspendname(e.target.value)}
+            />
+          </div>
+          <div>
+            <label>TYPE OF SPEND</label>
+            <select
+              value={spendtype}
+              onChange={(e) => setspendtype(e.target.value)}
+              className="input"
+            >
+              <option value="House Expences">House Expences</option>
+              <option value="Savings">Savings</option>
+              <option value="Luxury">Luxury</option>
+            </select>
+          </div>
+          <div>
+            <label>WHEN YOU SPEND ?</label>
+            <input
+              value={time}
+              onChange={(e) => settime(e.target.value)}
+              className="input"
+              type="time"
+            />
+          </div>
+          <div>
+            <label>HOW MUCH YOU SPEND ?</label>
+            <input
+              value={amount}
+              onChange={setCheckedamount}
+              placeholder="Enter amount"
+              className="input"
+              type="text"
+            />
+            {error && <p className="error">{`* ${error}`}</p>}
+          </div>
+          <button type="submit">ADD</button>
+        </form>
+        <img src={windowPoster} alt="window-poster" />
+        <FooterNav />
+      </div>
+      {status === apiStatus.loading && (
+        <div className="add-new-spend-loader-container">
+          <Loader />
         </div>
-        <div>
-          <label>TYPE OF SPEND</label>
-          <select
-            value={spendtype}
-            onChange={(e) => setspendtype(e.target.value)}
-            className="input"
-          >
-            <option value="House Expences">House Expences</option>
-            <option value="Savings">Savings</option>
-            <option value="Luxury">Luxury</option>
-          </select>
-        </div>
-        <div>
-          <label>WHEN YOU SPEND ?</label>
-          <input
-            value={time}
-            onChange={(e) => settime(e.target.value)}
-            className="input"
-            type="time"
-          />
-        </div>
-        <div>
-          <label>HOW MUCH YOU SPEND ?</label>
-          <input
-            value={amount}
-            onChange={setCheckedamount}
-            placeholder="Enter amount"
-            className="input"
-            type="text"
-          />
-          {error && <p className="error">{`* ${error}`}</p>}
-        </div>
-        <button type="submit">ADD</button>
-      </form>
-      <img src={windowPoster} alt="window-poster" />
-      <FooterNav />
-    </div>
+      )}
+    </>
   );
 };
 export default AddSpend;

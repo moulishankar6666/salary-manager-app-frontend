@@ -3,6 +3,7 @@ import "./index.css";
 import FooterNav from "../Footer";
 import MonthlySpendsHeader from "../Header/monthlySpensHeader";
 import SpendItem from "../SpendItem";
+import Loader from "../Loader";
 
 //hooks
 import { useEffect, useState } from "react";
@@ -66,9 +67,7 @@ const MonthWiseSpends = () => {
   const loading = () => {
     return (
       <div className="center-the-content">
-        <div className="Loader-spinner-outer">
-          <div className="loader-spinner-inner">0</div>
-        </div>
+        <Loader />
       </div>
     );
   };
@@ -81,7 +80,8 @@ const MonthWiseSpends = () => {
             const { spendid, spendtype, spendname, amount, datetime } = each;
             return (
               <SpendItem
-                item={{ spendid, spendtype, spendname, amount, datetime }}
+                key={spendid}
+                item={{ spendtype, spendname, amount, datetime }}
               />
             );
           })

@@ -37,7 +37,7 @@ const Calendar = () => {
         options
       );
       const response = await data.json();
-      console.log(response);
+
       if (data.ok) {
         setDaySpendsList(response.response);
         setStatus(apiStatus.success);
