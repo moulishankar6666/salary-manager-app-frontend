@@ -22,6 +22,7 @@
 .spend-item-main-container > div > h5 {
   width: 100%;
   text-align: start;
+  font-size: 15px;
 }
 .spend-item-main-container > div > .spend-type-color {
   display: flex;

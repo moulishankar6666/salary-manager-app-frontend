@@ -26,7 +26,15 @@ const GroupsData = [
   },
 ];
 
-const SpendGroups = () => {
+const apiStatus = {
+  Initial: "INITIAL",
+  loading: "LOADING",
+  success: "SUCCESS",
+  failure: "FAILURE",
+};
+
+const SpendGroups = (props) => {
+  const { status } = props.status;
   // spend Group
   const eachGroup = (group) => {
     return (
@@ -38,11 +46,15 @@ const SpendGroups = () => {
             <p>{`${group.noofSpends} Spends`}</p>
           </div>
         </div>
-        <div className="spend-groups-right-container">
-          <div className="spend-groups-right-inner-container">
-            {`${group.percentage}%`}
+        {status === apiStatus.success ? (
+          <div className="spend-groups-right-container">
+            <div className="spend-groups-right-inner-container">
+              {`${group.percentage}%`}
+            </div>
           </div>
-        </div>
+        ) : (
+          "0%"
+        )}
       </div>
     );
   };

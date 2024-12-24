@@ -39,7 +39,10 @@
 .remaing-salary-container-content > p {
   font-size: 14px;
 }
-.remaing-salary-container-content > button {
+.remaing-salary-container-content > .link {
+  text-decoration: none;
+}
+.remaing-salary-container-content > .link > button {
   font-weight: 550;
   font-size: 11px;
   padding: 5px 10px;
