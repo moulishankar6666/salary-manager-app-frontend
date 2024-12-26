@@ -43,9 +43,9 @@ const Home = () => {
   return (
     <div className="home-main-container">
       <Header />
-      <RemaingSalaryPercentage status={{ status }} />
+      <RemaingSalaryPercentage status={{ status, user: userinfo }} />
       <RecentSpends />
-      <SpendGroups status={{ status }} />
+      <SpendGroups data={{ status, user: userinfo }} />
       <FooterNav />
     </div>
   );

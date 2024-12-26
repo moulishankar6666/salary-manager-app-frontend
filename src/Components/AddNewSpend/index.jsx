@@ -6,6 +6,8 @@ import FooterNav from "../Footer";
 import { useState } from "react";
 import Loader from "../Loader";
 
+import toast, { Toaster } from "react-hot-toast";
+
 const apiStatus = {
   Initial: "INITIAL",
   loading: "LOADING",
@@ -18,7 +20,7 @@ const today = new Date();
 const AddSpend = () => {
   const [spendtype, setspendtype] = useState("House Expences");
   const [spendname, setspendname] = useState("");
-  const [amount, setamout] = useState("");
+  const [amount, setamount] = useState("");
   const [time, settime] = useState(today.toString().split(" ")[4].slice(0, 5));
   const [error, setError] = useState("");
   const [status, setStatus] = useState(apiStatus.Initial);
@@ -68,11 +70,12 @@ const AddSpend = () => {
       .split("")
       .every((a) => Number.isInteger(parseInt(a)));
     if (isDigit) {
-      setamout(e.target.value);
+      setamount(e.target.value);
       setError("");
     } else if (e.target.value.length > 0) {
       setError("Enter amount in Digits");
-      setamout(e.target.value);
+      setamount(e.target.value);
+      toast.error("Enter amount in Digits");
     }
   };
 
@@ -90,27 +93,35 @@ const AddSpend = () => {
           if (data.ok) {
             settime(today.toString().split(" ")[4].slice(0, 5));
             setspendname("");
-            setamout("");
+            setamount("");
             setError("");
             setStatus(apiStatus.success);
-            alert("Added Successfully");
+            toast.success("Added Successfully");
           }
         } else {
           setError("Fill all fields");
+          toast.error("Fill all fields");
         }
       }
     } catch (error) {
+      toast.error(
+        error.message === "Failed to fetch"
+          ? "Check your Internet connection"
+          : error.message
+      );
       setError(
         error.message === "Failed to fetch"
           ? "Check your Internet connection"
           : error.message
       );
+      setStatus(apiStatus.failure);
     }
   };
 
   return (
     <>
       <div className="add-new-spend-main-container">
+        <Toaster richColors />
         <form onSubmit={onSubmitNewSpend}>
           <h1>ADD NEW SPEND</h1>
           <div>
@@ -152,13 +163,13 @@ const AddSpend = () => {
               className="input"
               type="text"
             />
-            {error && <p className="error">{`* ${error}`}</p>}
           </div>
           <button type="submit">ADD</button>
         </form>
         <img src={windowPoster} alt="window-poster" />
         <FooterNav />
       </div>
+
       {status === apiStatus.loading && (
         <div className="add-new-spend-loader-container">
           <Loader />

@@ -30,10 +30,15 @@ const SpendItem = (props) => {
         </div>
       </div>
       <div className="edit-button-container">
-        <p>{` ${time}`}</p>
+        <p>{`${time}`}</p>
 
         {pathname === "monthlyspends" ? (
-          <p>{`Date :${date[2]}`}</p>
+          <div className="show-date">
+            <p>
+              Date <br />
+              {date[2]}
+            </p>
+          </div>
         ) : (
           <button>Delete</button>
         )}

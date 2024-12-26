@@ -9,27 +9,59 @@ const apiStatus = {
 };
 
 const RemaingSalaryPercentage = (props) => {
-  const { status } = props.status;
+  const { status, user } = props.status;
+
+  const success = () => {
+    const { totalamount, userInfo } = user;
+    const { salary } = userInfo;
+    const deg = totalamount / salary;
+    return (
+      <div
+        className="salary-percentage-container"
+        style={{
+          background: `conic-gradient(
+        #fff ${deg * 360}deg,
+        #80808067 90deg
+      )`,
+        }}
+      >
+        <div className="salary-percentage-inner-container">
+          <p>{`${parseInt(deg * 100)}%`}</p>
+        </div>
+      </div>
+    );
+  };
+
+  const loading = () => {
+    return (
+      <div
+        className="salary-percentage-container"
+        style={{
+          background: `conic-gradient(
+          #fff ${360}deg,
+          #80808067 90deg
+        )`,
+        }}
+      >
+        <div className="salary-percentage-inner-container">
+          <p>wait...</p>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="remaing-salary-percentage-main-container">
       <div className="remaing-salary-container-content">
         <p>
-          This month your <br /> Remaining salary
+          This month your <br /> Spended salary %
         </p>
         <Link className="link" to="/monthlyspends">
           <button>ViewAll Spends</button>
         </Link>
       </div>
       <div className="salary-percentage-main-container">
-        {status === apiStatus.success ? (
-          <div className="salary-percentage-container">
-            <div className="salary-percentage-inner-container">
-              <p>85%</p>
-            </div>
-          </div>
-        ) : (
-          "0%"
-        )}
+        {status === apiStatus.success ? success() : loading()}
         <button>
           <IoIosMore />
         </button>

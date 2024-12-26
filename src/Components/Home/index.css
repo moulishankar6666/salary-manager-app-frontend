@@ -52,11 +52,7 @@
   outline: none;
 }
 .salary-percentage-container {
-  background-image: conic-gradient(
-    from 90deg,
-    #fff 270deg,
-    rgba(128, 128, 128, 0.402) 90deg
-  );
+  background-image: conic-gradient(#fff 270deg, #80808067 90deg);
   height: 100px;
   width: 100px;
   border-radius: 100px;
@@ -103,6 +99,7 @@
 .spend-groups-main-container > h3 {
   font-weight: bolder;
 }
+
 .spend-groups-container {
   display: flex;
   justify-content: space-between;
@@ -117,6 +114,7 @@
   align-items: center;
   gap: 15px;
 }
+
 .spend-groups-left-container > .left-image-container {
   font-size: 20px;
 }
@@ -130,7 +128,7 @@
 }
 
 .spend-groups-right-container {
-  background-image: conic-gradient(from 90deg, #000 270deg, #514e4e89 90deg);
+  background: conic-gradient(#000 180deg, #514e4e89 90deg);
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -138,6 +136,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all linear;
 }
 
 .spend-groups-right-inner-container {
@@ -150,8 +149,22 @@
   justify-content: center;
   align-items: center;
   font-size: 12px;
+  font-weight: 600;
 }
-
+.Percentage {
+  animation: rotation 2.5s linear 0s infinite;
+}
+@keyframes rotation {
+  0% {
+    transform: scale(1.1) rotate(0deg);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1.1) rotate(360deg);
+  }
+}
 /* recentspends.jsx file styling */
 
 .recent-spends-main-container {
