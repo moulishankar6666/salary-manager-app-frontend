@@ -3,6 +3,8 @@ import { IoFastFood } from "react-icons/io5";
 import { FaHome } from "react-icons/fa";
 import { RiDiscountPercentFill } from "react-icons/ri";
 
+import Skeleton from "./skeletonLoading";
+
 const GroupsData = [
   {
     groupName: "House Expences",
@@ -123,13 +125,7 @@ const SpendGroups = (props) => {
           <div className="left-image-container">{group.groupImg}</div>
           <div className="left-content-container">
             <p className="group-name">{group.groupName}</p>
-            {status === apiStatus.success ? (
-              TaskCount(group)
-            ) : (
-              <div className="skeleton">
-                <p>{``}</p>
-              </div>
-            )}
+            {status === apiStatus.success ? TaskCount(group) : <Skeleton />}
           </div>
         </div>
         {status === apiStatus.success ? success(group.groupName) : loading()}
