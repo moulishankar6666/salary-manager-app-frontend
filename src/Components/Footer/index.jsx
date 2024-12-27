@@ -9,40 +9,42 @@ import { IoPersonCircle } from "react-icons/io5";
 import { Link } from "react-router";
 
 const FooterNav = () => {
+  const path = window.location.pathname;
+
   return (
     <div className="footer-nav-main-container">
       <ul className="footer-nav-links-container">
         <li>
-          <button>
+          <button className={path === "/home" ? "active" : "inactive"}>
             <Link className="link" to="/home ">
               <FaHome size={22} />
             </Link>
           </button>
         </li>
         <li>
-          <button>
+          <button className={path === "/calandar" ? "active" : "inactive"}>
             <Link className="link" to="/calandar">
               <FaCalendarAlt />
             </Link>
           </button>
         </li>
         <li>
-          <button>
+          <button className={path === "/addSpend" ? "active" : "inactive"}>
             <Link className="link" to="/addSpend">
               <FaCirclePlus />
             </Link>
           </button>
         </li>
         <li>
-          <button>
+          <button className={path === "/monthlyspends" ? "active" : "inactive"}>
             <Link className="link" to="/monthlyspends">
               <FaClipboardList />
             </Link>
           </button>
         </li>
         <li>
-          <button>
-            <Link className="link" to="/addSpend">
+          <button className={path === "/profile" ? "active" : "inactive"}>
+            <Link className="link" to="/home">
               <IoPersonCircle size={25} />
             </Link>
           </button>

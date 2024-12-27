@@ -38,7 +38,6 @@ const Home = () => {
     }
     getData();
   }, []);
-  console.log(userinfo);
 
   return (
     <div className="home-main-container">

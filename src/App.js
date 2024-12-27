@@ -15,7 +15,7 @@ function App() {
         <Route path="/calandar" element={<Calendar />} />
         <Route path="/addspend" element={<AddSpend />} />
         <Route path="/monthlyspends" element={<MonthWiseSpends />} />
-        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/" element={<Navigate to="/login" />} />
       </Routes>
     </div>
   );

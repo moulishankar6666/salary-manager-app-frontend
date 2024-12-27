@@ -14,7 +14,7 @@ const RemaingSalaryPercentage = (props) => {
   const success = () => {
     const { totalamount, userInfo } = user;
     const { salary } = userInfo;
-    const deg = totalamount / salary;
+    const deg = totalamount[0] / salary;
     return (
       <div
         className="salary-percentage-container"

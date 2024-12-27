@@ -34,17 +34,18 @@ const apiStatus = {
 const SpendGroups = (props) => {
   const { status } = props.data;
 
-  const success = (user, groupname) => {
+  const success = (groupname) => {
+    const { user } = props.data;
     const { Luxury, savings, housespend, userInfo } = user;
     const { salary } = userInfo;
     const deg = () => {
       switch (groupname) {
         case GroupsData[0].groupName:
-          return housespend / ((salary / 100) * 50);
+          return housespend[0] / ((salary / 100) * 50);
         case GroupsData[1].groupName:
-          return savings / ((salary / 100) * 20);
+          return savings[0] / ((salary / 100) * 20);
         case GroupsData[2].groupName:
-          return Luxury / ((salary / 100) * 30);
+          return Luxury[0] / ((salary / 100) * 30);
         default:
           break;
       }
@@ -77,7 +78,7 @@ const SpendGroups = (props) => {
         }
       >
         <div className="spend-groups-right-inner-container">
-          {status === apiStatus.success ? `${parseInt(deg() * 100)}%` : `${5}%`}
+          {parseInt(deg() * 100)}
         </div>
       </div>
     );
@@ -100,22 +101,38 @@ const SpendGroups = (props) => {
     );
   };
 
+  const TaskCount = (group) => {
+    const { user } = props.data;
+    const { Luxury, savings, housespend } = user;
+
+    const taskCount =
+      group.groupName === GroupsData[0].groupName
+        ? housespend[1]
+        : group.groupName === GroupsData[1].groupName
+        ? savings[1]
+        : Luxury[1];
+
+    return <p>{`${taskCount} Spends`}</p>;
+  };
+
   // spend Group
   const eachGroup = (group) => {
-    const { user } = props.data;
-
     return (
       <div key={group.groupName} className="spend-groups-container">
         <div className="spend-groups-left-container">
           <div className="left-image-container">{group.groupImg}</div>
           <div className="left-content-container">
             <p className="group-name">{group.groupName}</p>
-            <p>{`${group.noofSpends} Spends`}</p>
+            {status === apiStatus.success ? (
+              TaskCount(group)
+            ) : (
+              <div className="skeleton">
+                <p>{``}</p>
+              </div>
+            )}
           </div>
         </div>
-        {status === apiStatus.success
-          ? success(user, group.groupName)
-          : loading()}
+        {status === apiStatus.success ? success(group.groupName) : loading()}
       </div>
     );
   };
