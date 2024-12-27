@@ -42,9 +42,9 @@ const SpendGroups = (props) => {
         case GroupsData[0].groupName:
           return housespend / ((salary / 100) * 50);
         case GroupsData[1].groupName:
-          return savings / ((salary / 100) * 30);
+          return savings / ((salary / 100) * 20);
         case GroupsData[2].groupName:
-          return Luxury / ((salary / 100) * 20);
+          return Luxury / ((salary / 100) * 30);
         default:
           break;
       }
