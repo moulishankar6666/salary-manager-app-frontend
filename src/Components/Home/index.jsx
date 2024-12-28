@@ -1,6 +1,6 @@
 import "./index.css";
 
-import Header from "../Header";
+import Header from "../Header/homeHeader";
 import RemaingSalaryPercentage from "./salayPercentage";
 import SpendGroups from "./spendGroups";
 import RecentSpends from "./recentSpends";
@@ -9,7 +9,6 @@ import FooterNav from "../Footer";
 import toast, { Toaster } from "react-hot-toast";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { use } from "react";
 
 const apiStatus = {
   Initial: "INITIAL",
@@ -35,7 +34,7 @@ const Home = () => {
   const getData = useCallback(async () => {
     try {
       setStatus(apiStatus.loading);
-      console.log("working 1");
+
       const fetchdata = await fetch(
         "https://salary-manger-backend.onrender.com/profile",
         { signal, ...options }
@@ -56,9 +55,8 @@ const Home = () => {
 
   useEffect(() => {
     getData();
-    console.log("abort");
+
     return () => {
-      console.log("abort");
       setTimeout(() => {
         controller.abort(); // Aborts the operation
       }, 5000);
@@ -68,7 +66,7 @@ const Home = () => {
   const user = useMemo(() => {
     return { status, user: userinfo };
   }, [status, userinfo]);
-  console.log(user);
+
   return (
     <div className="home-main-container">
       <Toaster richColors />

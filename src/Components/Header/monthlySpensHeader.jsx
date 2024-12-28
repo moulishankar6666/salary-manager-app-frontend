@@ -11,11 +11,8 @@ const MonthlySpendsHeader = (props) => {
   };
 
   return (
-    <div
-      aria-label="arrowback-button"
-      className="monthly-spends-main-container"
-    >
-      <button>
+    <div className="monthly-spends-main-container">
+      <button aria-label="arrowback-button">
         <Link aria-label="arrowback-button" to="/home">
           <IoArrowBackCircle />
         </Link>
