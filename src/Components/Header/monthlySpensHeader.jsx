@@ -11,9 +11,12 @@ const MonthlySpendsHeader = (props) => {
   };
 
   return (
-    <div className="monthly-spends-main-container">
+    <div
+      aria-label="arrowback-button"
+      className="monthly-spends-main-container"
+    >
       <button>
-        <Link to="/home">
+        <Link aria-label="arrowback-button" to="/home">
           <IoArrowBackCircle />
         </Link>
       </button>
@@ -22,13 +25,14 @@ const MonthlySpendsHeader = (props) => {
 
       <div className="header-right">
         <div className="refresh-container">
-          <button onClick={getSpends}>
+          <button aria-label="arrowback-button" onClick={getSpends}>
             <IoMdRefreshCircle size={25} />
           </button>
           <p>Refresh</p>
         </div>
 
         <input
+          id="selectmonth"
           className="select-month"
           value={month}
           onChange={setSelectMonth}

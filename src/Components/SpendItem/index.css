@@ -19,7 +19,7 @@
   gap: 10px;
   flex-grow: 2;
 }
-.spend-item-main-container > div > h5 {
+.spend-item-main-container > div > .spend-item-name {
   width: 100%;
   text-align: start;
   font-size: 15px;

@@ -22,11 +22,10 @@ const SpendItem = (props) => {
           {spendTypeLogo[spendtype]}
           <p>{spendtype}</p>
         </div>
-        <h5>{spendname.toUpperCase()}</h5>
+        <p className="spend-item-name">{spendname.toUpperCase()}</p>
 
         <div className="spend-amount">
           <p>&#8377; {` ${amount}`}</p>
-          {/* <p>(25%)</p> */}
         </div>
       </div>
       <div className="edit-button-container">
