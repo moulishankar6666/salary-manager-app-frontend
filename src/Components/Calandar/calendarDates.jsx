@@ -19,10 +19,15 @@ const CalendarDates = (props) => {
     const day = date[2][0] === "0" ? date[2][1] : date[2];
 
     const isactive = date[2] === activeDate[2] ? "True" : null;
+    const modifyDate = () => {
+      if (activeDate.toString() !== date.toString()) {
+        setActiveDate(date);
+      }
+    };
     return (
       <li
         key={i}
-        onClick={() => setActiveDate(date)}
+        onClick={modifyDate}
         className={`${isactive ? "active" : "in-active"}`}
       >
         <p className="month">{date[1]}</p>

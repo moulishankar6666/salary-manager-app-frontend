@@ -4,9 +4,14 @@ import logo from "../assets/app logo.png";
 
 import { IoNotifications } from "react-icons/io5";
 
-import Skeleton from "../Home/skeletonLoading";
+import Skeleton from "../Loader/skeletonLoading";
+
+import React, { useRef } from "react";
 
 const Header = (props) => {
+  // const count = useRef(1);
+  // count.current = count.current + 1;
+  // console.log(count.current);
   const { status, user } = props.status;
   return (
     <div className="header-user-profile-container">
@@ -21,9 +26,11 @@ const Header = (props) => {
           </h5>
         </div>
       </div>
-      <button className="mode-button">{<IoNotifications />}</button>
+      <button type="button" aria-label="Aria button" className="mode-button">
+        {<IoNotifications />}
+      </button>
     </div>
   );
 };
 
-export default Header;
+export default React.memo(Header);

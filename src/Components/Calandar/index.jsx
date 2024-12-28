@@ -29,12 +29,15 @@ const Calendar = () => {
     },
   };
 
+  const Controller = new AbortController();
+  const signal = Controller.signal;
+
   const getDaySpends = async () => {
     setStatus(apiStatus.loading);
     try {
       const data = await fetch(
         `https://salary-manger-backend.onrender.com/dayspends/${activeDate[2]}`,
-        options
+        { signal, ...options }
       );
       const response = await data.json();
 
@@ -49,6 +52,11 @@ const Calendar = () => {
 
   useEffect(() => {
     getDaySpends();
+    return () => {
+      setTimeout(() => {
+        Controller.abort(); // Aborts the operation
+      }, 5000);
+    };
   }, [activeDate]);
 
   return (

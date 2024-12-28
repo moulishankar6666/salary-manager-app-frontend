@@ -46,3 +46,47 @@
     transform: rotate(0deg);
   }
 }
+
+/* skelteton.jsx file styling */
+.skeleton {
+  width: 100px;
+  height: 25px;
+  margin-top: 3px;
+  overflow: hidden;
+  border-radius: 3px;
+  background-color: #d7d5d5;
+}
+.skeleton > p {
+  height: 35px;
+  width: 200px;
+  background-image: linear-gradient(
+    to left,
+    transparent,
+    transparent,
+    transparent,
+    transparent,
+    transparent,
+    transparent 50%,
+    grey 53%,
+    #fff 54%,
+    grey 55%,
+    transparent 58%,
+    transparent,
+    transparent,
+    transparent,
+    transparent,
+    transparent
+  );
+
+  transform: translateX(-110px) rotate(20deg);
+  animation: skeleton 1.5s linear infinite;
+}
+
+@keyframes skeleton {
+  0% {
+    transform: translate(-110px) rotate(30deg);
+  }
+  100% {
+    transform: translate(20px) rotate(30deg);
+  }
+}

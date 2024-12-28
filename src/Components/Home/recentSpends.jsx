@@ -12,7 +12,7 @@ const RecentSpends = () => {
             <p>Savings</p>
             <MdSavings />
           </div>
-          <h5>Invested in SIP</h5>
+          <p className="spend-name">Invested in SIP</p>
           <div className="spend-amount">
             <p>5000</p>
             <p>25%</p>
@@ -23,7 +23,7 @@ const RecentSpends = () => {
             <p>Savings</p>
             <MdSavings />
           </div>
-          <h5>Invested in SIP</h5>
+          <p className="spend-name">Invested in SIP</p>
           <div className="spend-amount">
             <p>5000</p>
             <p>25%</p>
@@ -34,7 +34,7 @@ const RecentSpends = () => {
             <p>Savings</p>
             <MdSavings />
           </div>
-          <h5>Invested in SIP</h5>
+          <p className="spend-name">Invested in SIP</p>
           <div className="spend-amount">
             <p>5000</p>
             <p>25%</p>

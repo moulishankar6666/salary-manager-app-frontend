@@ -3,7 +3,7 @@ import { IoFastFood } from "react-icons/io5";
 import { FaHome } from "react-icons/fa";
 import { RiDiscountPercentFill } from "react-icons/ri";
 
-import Skeleton from "./skeletonLoading";
+import Skeleton from "../Loader/skeletonLoading";
 
 const GroupsData = [
   {

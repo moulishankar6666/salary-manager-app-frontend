@@ -125,8 +125,9 @@ const AddSpend = () => {
         <form onSubmit={onSubmitNewSpend}>
           <h1>ADD NEW SPEND</h1>
           <div>
-            <label>NAME OF SPEND</label>
+            <label htmlFor="nameofspend">NAME OF SPEND</label>
             <input
+              id="nameofspend"
               placeholder="Enter name of spend"
               className="input"
               value={spendname}
@@ -134,8 +135,9 @@ const AddSpend = () => {
             />
           </div>
           <div>
-            <label>TYPE OF SPEND</label>
+            <label htmlFor="typeOfSpend">TYPE OF SPEND</label>
             <select
+              id="typeOfSpend"
               value={spendtype}
               onChange={(e) => setspendtype(e.target.value)}
               className="input"
@@ -146,8 +148,9 @@ const AddSpend = () => {
             </select>
           </div>
           <div>
-            <label>WHEN YOU SPEND ?</label>
+            <label htmlFor="whenYouSpend">WHEN YOU SPEND ?</label>
             <input
+              id="whenYouSpend"
               value={time}
               onChange={(e) => settime(e.target.value)}
               className="input"
@@ -155,8 +158,9 @@ const AddSpend = () => {
             />
           </div>
           <div>
-            <label>HOW MUCH YOU SPEND ?</label>
+            <label id="howMuchYouSpend">HOW MUCH YOU SPEND ?</label>
             <input
+              id="howMuchYouSpend"
               value={amount}
               onChange={setCheckedamount}
               placeholder="Enter amount"

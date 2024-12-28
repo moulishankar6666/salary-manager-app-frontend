@@ -33,7 +33,7 @@ const DaySpends = (props) => {
             );
           })
         ) : (
-          <p className="center-the-content">No spends in this date</p>
+          <li className="center-the-content">No spends in this date</li>
         )}
       </>
     );
@@ -41,10 +41,10 @@ const DaySpends = (props) => {
 
   const failure = () => {
     return (
-      <div className="center-the-content">
+      <li className="center-the-content">
         <p>Something went wrong</p>
         <button onClick={getDaySpends}>Retry</button>
-      </div>
+      </li>
     );
   };
 

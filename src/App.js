@@ -6,6 +6,7 @@ import Home from "./Components/Home";
 import Calendar from "./Components/Calandar";
 import AddSpend from "./Components/AddNewSpend";
 import MonthWiseSpends from "./Components/MonthWiseSpends";
+import Login from "./Components/Login";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Route path="/calandar" element={<Calendar />} />
         <Route path="/addspend" element={<AddSpend />} />
         <Route path="/monthlyspends" element={<MonthWiseSpends />} />
-        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Navigate to="/home" />} />
       </Routes>
     </div>
   );

@@ -62,7 +62,7 @@ const RemaingSalaryPercentage = (props) => {
       </div>
       <div className="salary-percentage-main-container">
         {status === apiStatus.success ? success() : loading()}
-        <button>
+        <button aria-label="Aria moreinfo">
           <IoIosMore />
         </button>
       </div>
