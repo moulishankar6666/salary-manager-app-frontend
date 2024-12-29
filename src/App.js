@@ -17,7 +17,7 @@ function App() {
         <Route path="/addspend" element={<AddSpend />} />
         <Route path="/monthlyspends" element={<MonthWiseSpends />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/" element={<Navigate to="/login" />} />
       </Routes>
     </div>
   );

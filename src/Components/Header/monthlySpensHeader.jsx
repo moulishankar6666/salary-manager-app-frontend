@@ -11,7 +11,7 @@ const MonthlySpendsHeader = (props) => {
   };
 
   return (
-    <div className="monthly-spends-main-container">
+    <header className="monthly-spends-main-container">
       <button aria-label="arrowback-button">
         <Link aria-label="arrowback-button" to="/home">
           <IoArrowBackCircle />
@@ -36,7 +36,7 @@ const MonthlySpendsHeader = (props) => {
           type="month"
         />
       </div>
-    </div>
+    </header>
   );
 };
 

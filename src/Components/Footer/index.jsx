@@ -12,7 +12,7 @@ const FooterNav = () => {
   const path = window.location.pathname;
 
   return (
-    <div className="footer-nav-main-container">
+    <footer className="footer-nav-main-container">
       <ul className="footer-nav-links-container">
         <li>
           <button
@@ -69,7 +69,7 @@ const FooterNav = () => {
           </button>
         </li>
       </ul>
-    </div>
+    </footer>
   );
 };
 export default FooterNav;

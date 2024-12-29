@@ -11,7 +11,7 @@ import React from "react";
 const Header = (props) => {
   const { status, user } = props.status;
   return (
-    <div className="header-user-profile-container">
+    <header className="header-user-profile-container">
       <div className="user-profile-main-container">
         <div className="user-profile-container">
           <img className="user-profile" src={logo} alt="profile" />
@@ -26,7 +26,7 @@ const Header = (props) => {
       <button type="button" aria-label="Aria button" className="mode-button">
         {<IoNotifications />}
       </button>
-    </div>
+    </header>
   );
 };
 
