@@ -1,4 +1,5 @@
 import { useState } from "react";
+import sinup from "../assets/signinout.jpg";
 import "./index.css";
 
 const Login = () => {
@@ -6,16 +7,19 @@ const Login = () => {
 
   return (
     <div className="main-signin-out-container">
+      {/* <div className="poster-container">
+        <img src={sinup} alt="img" />
+      </div> */}
       <div className="signin-out-container">
         <div className={`signin-card ${active === "SIGNIN" ? "show" : "hide"}`}>
           <form onSubmit={(e) => e.preventDefault()}>
             <h1>Sign In</h1>
             <div>
-              <label htmlFor="username">USERNAME</label>
+              <label htmlFor="username">*USERNAME</label>
               <input placeholder="Enter Username" type="email" />
             </div>
             <div>
-              <label htmlFor="password">PASSWORD</label>
+              <label htmlFor="password">*PASSWORD</label>
               <input placeholder="Enter Password" type="password" />
             </div>
             <button type="submit">sign in</button>
