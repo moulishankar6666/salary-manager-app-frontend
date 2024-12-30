@@ -30,7 +30,7 @@
   background-image: url(../assets/50_30_20\ rule.png);
   background-position: 50% 50%;
   background-size: cover;
-  box-shadow: inset 1px 10px #619696 10px 16px;
+  box-shadow: inset 1px 1px #619696 10px 16px;
 }
 @media screen and (min-width: 480px) {
   .main-signin-out-container > .signin-out-container {
