@@ -73,9 +73,9 @@ const AddSpend = () => {
       setamount(e.target.value);
       setError("");
     } else if (e.target.value.length > 0) {
-      setError("Enter amount in Digits");
+      setError("Enter amount in Positive value");
       setamount(e.target.value);
-      toast.error("Enter amount in Digits");
+      toast.error("Enter amount in Positive value");
     }
   };
 
@@ -165,7 +165,7 @@ const AddSpend = () => {
               onChange={setCheckedamount}
               placeholder="Enter amount"
               className="input"
-              type="text"
+              type="number"
             />
           </div>
           <button type="submit">ADD</button>

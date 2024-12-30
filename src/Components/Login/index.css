@@ -9,15 +9,6 @@
   border-radius: 20px;
   background-color: #619696;
 }
-/* .main-signin-out-container > .poster-container {
-  height: 90%;
-  width: 30%;
-  display: none;
-}
-.poster-container > img {
-  height: 100%;
-  border-radius: 30px;
-} */
 
 .main-signin-out-container > .signin-out-container {
   height: 90%;
@@ -30,7 +21,8 @@
   background-image: url(../assets/50_30_20\ rule.png);
   background-position: 50% 50%;
   background-size: cover;
-  box-shadow: inset 1px 1px #619696 10px 16px;
+  box-shadow: inset 3px 3px 3px 3px #619696, inset -5px -5px 10px 10px #619696;
+  /* border: solid red; */
 }
 @media screen and (min-width: 480px) {
   .main-signin-out-container > .signin-out-container {
@@ -42,9 +34,6 @@
   .main-signin-out-container > .signin-out-container {
     width: 450px;
   }
-  /* .main-signin-out-container > .poster-container {
-    display: block;
-  } */
 }
 
 .main-signin-out-container > .signin-out-container > .signin-card {
@@ -60,6 +49,7 @@
   align-items: center;
   backdrop-filter: blur(10px);
   color: #000;
+  box-shadow: inset 3px 3px 3px 3px #619696, inset -5px -5px 10px 10px #619696;
 }
 .main-signin-out-container > .signin-out-container > .signup-card {
   display: flex;
@@ -75,6 +65,7 @@
   border-radius: 20px;
   backdrop-filter: blur(10px);
   color: #000;
+  box-shadow: inset 3px 3px 3px 3px #619696, inset -5px -5px 10px 10px #619696;
 }
 
 .main-signin-out-container > .signin-out-container > .signin-card > form,

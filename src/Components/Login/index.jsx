@@ -7,9 +7,6 @@ const Login = () => {
 
   return (
     <div className="main-signin-out-container">
-      {/* <div className="poster-container">
-        <img src={sinup} alt="img" />
-      </div> */}
       <div className="signin-out-container">
         <div className={`signin-card ${active === "SIGNIN" ? "show" : "hide"}`}>
           <form onSubmit={(e) => e.preventDefault()}>
@@ -47,7 +44,7 @@ const Login = () => {
             </div>
             <div>
               <label>MONTH-SALARY</label>
-              <input placeholder="Enter monthly salary" type="password" />
+              <input placeholder="Enter monthly salary" type="number" />
             </div>
             <button>sign up</button>
           </form>
