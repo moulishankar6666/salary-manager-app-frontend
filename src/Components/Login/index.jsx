@@ -1,5 +1,5 @@
 import { useState } from "react";
-import sinup from "../assets/signinout.jpg";
+
 import "./index.css";
 
 const Login = () => {
