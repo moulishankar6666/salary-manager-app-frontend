@@ -5,6 +5,8 @@ import MonthlySpendsHeader from "../Header/monthlySpensHeader";
 import SpendItem from "../SpendItem";
 import Loader from "../Loader";
 
+import Cookies from "js-cookie";
+
 //hooks
 import { useEffect, useState } from "react";
 
@@ -29,13 +31,13 @@ const MonthWiseSpends = () => {
   const [error, setError] = useState("");
 
   //options for to get data from database
+  const token = Cookies.get("manager");
   const options = {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJtb3VsaUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRCcEd3VUpnOVp3N3o5Q2J1ckozVGl1Y3lpN2F6NkxYMlhjdlFIMUFvRUxHcXBtYVpxemkuNiIsInNhbGFyeSI6NTAwMDAsImZ1bGxuYW1lIjoibW91bGkgc2hhbmthciIsImlhdCI6MTczMzgyNDU3N30.SGeezmerUp23BT5BUSWVyzrSUluInw8jVckTv6EAuvw",
+      Authorization: `Bearer ${token}`,
     },
   };
 
