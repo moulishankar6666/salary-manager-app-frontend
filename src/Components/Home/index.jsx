@@ -59,7 +59,7 @@ const Home = () => {
     return () => {
       setTimeout(() => {
         controller.abort(); // Aborts the operation
-      }, 5000);
+      }, 10000);
     };
   }, []);
 
@@ -69,7 +69,6 @@ const Home = () => {
 
   return (
     <div className="home-main-container">
-      <Toaster richColors />
       <Header status={user} />
       <RemaingSalaryPercentage status={user} />
       <RecentSpends />
