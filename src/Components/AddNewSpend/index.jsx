@@ -66,16 +66,15 @@ const AddSpend = () => {
 
   const setCheckedamount = (e) => {
     const enteredAmount = e.target.value;
-    const isDigit = enteredAmount
-      .split("")
-      .every((a) => Number.isInteger(parseInt(a)));
+    const isDigit = enteredAmount > 0;
+
     if (isDigit) {
       setamount(e.target.value);
       setError("");
     } else if (e.target.value.length > 0) {
-      setError("Enter amount in Positive value");
+      setError("Please Enter Positive Value");
       setamount(e.target.value);
-      toast.error("Enter amount in Positive value");
+      toast.error("Please Enter Positive Value");
     }
   };
 

@@ -7,6 +7,7 @@ import Calendar from "./Components/Calandar";
 import AddSpend from "./Components/AddNewSpend";
 import MonthWiseSpends from "./Components/MonthWiseSpends";
 import Login from "./Components/Login";
+import Profile from "./Components/Profile";
 import ProctedRoute from "./Components/ProctedRoute";
 import { Toaster } from "react-hot-toast";
 
@@ -23,9 +24,38 @@ function App() {
             </ProctedRoute>
           }
         />
-        <Route path="/calandar" element={<Calendar />} />
-        <Route path="/addspend" element={<AddSpend />} />
-        <Route path="/monthlyspends" element={<MonthWiseSpends />} />
+        <Route
+          path="/calandar"
+          element={
+            <ProctedRoute>
+              <Calendar />
+            </ProctedRoute>
+          }
+        />
+        <Route
+          path="/addspend"
+          element={
+            <ProctedRoute>
+              <AddSpend />
+            </ProctedRoute>
+          }
+        />
+        <Route
+          path="/monthlyspends"
+          element={
+            <ProctedRoute>
+              <MonthWiseSpends />
+            </ProctedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProctedRoute>
+              <Profile />
+            </ProctedRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Navigate to="/login" />} />
       </Routes>

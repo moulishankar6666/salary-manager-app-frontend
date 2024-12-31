@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import toast from "react-hot-toast";
@@ -18,17 +18,8 @@ const Signin = (props) => {
 
   const navigate = useNavigate();
 
-  const controller = new AbortController();
-  const signal = controller.signal;
-
-  //   let timerId;
-  //   const Loading = () => {
-  //     timerId = setInterval(() => {
-  //       toast("Loading!...", {
-  //         icon: "✋",
-  //       });
-  //     }, 4500);
-  //   };
+  // const controller = new AbortController();
+  // const signal = controller.signal;
 
   const onSignin = async (e) => {
     e.preventDefault();
@@ -50,12 +41,12 @@ const Signin = (props) => {
             "https://salary-manger-backend.onrender.com/signin",
             options
           );
-          console.log(response);
+
           const data = await response.json();
 
           if (response.ok) {
             setStatus(apiStatus.success);
-            toast.success(data.status);
+            toast.success("Sign In Successfully");
             Cookies.set("manager", data.token, { expires: 30 });
             navigate("/home");
           } else {

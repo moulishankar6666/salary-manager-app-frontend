@@ -7,6 +7,7 @@ import RecentSpends from "./recentSpends";
 import FooterNav from "../Footer";
 
 import toast, { Toaster } from "react-hot-toast";
+import Cookies from "js-cookie";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 
@@ -20,11 +21,12 @@ const apiStatus = {
 const Home = () => {
   const [userinfo, setUserinfo] = useState({});
   const [status, setStatus] = useState(apiStatus.Initial);
+
+  const token = Cookies.get("manager");
   const options = {
     method: "GET",
     headers: {
-      authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJtb3VsaUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRCcEd3VUpnOVp3N3o5Q2J1ckozVGl1Y3lpN2F6NkxYMlhjdlFIMUFvRUxHcXBtYVpxemkuNiIsInNhbGFyeSI6NTAwMDAsImZ1bGxuYW1lIjoibW91bGkgc2hhbmthciIsImlhdCI6MTczMzgyNDU3N30.SGeezmerUp23BT5BUSWVyzrSUluInw8jVckTv6EAuvw",
+      authorization: `Bearer ${token}`,
     },
   };
 
@@ -46,9 +48,15 @@ const Home = () => {
       setStatus(apiStatus.failure);
 
       if (error.name === "AbortError") {
-        toast.error("Something Wrong");
+        setStatus(apiStatus.failure);
+        toast("Please wait...");
+        getData();
       } else {
-        toast.error(error.message);
+        toast.error(
+          error.message === "Failed to fetch"
+            ? "Check your Internet connection"
+            : error.message
+        );
       }
     }
   }, []);
@@ -69,6 +77,7 @@ const Home = () => {
 
   return (
     <div className="home-main-container">
+      <Toaster richColors />
       <Header status={user} />
       <RemaingSalaryPercentage status={user} />
       <RecentSpends />

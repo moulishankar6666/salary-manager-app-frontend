@@ -63,7 +63,7 @@ const FooterNav = () => {
             aria-label="Aria navlinks"
             className={path === "/profile" ? "active" : "inactive"}
           >
-            <Link aria-label="used to navigate" className="link" to="/home">
+            <Link aria-label="used to navigate" className="link" to="/profile">
               <IoPersonCircle size={25} />
             </Link>
           </button>
