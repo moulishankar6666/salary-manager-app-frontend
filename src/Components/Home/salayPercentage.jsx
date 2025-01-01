@@ -19,9 +19,9 @@ const RemaingSalaryPercentage = (props) => {
       <div
         className="salary-percentage-container"
         style={{
-          background: `conic-gradient(
-        #fff ${deg * 360}deg,
-        #80808067 90deg
+          backgroundImage: `conic-gradient(#fff 0deg, #fff ${
+            deg * 360
+          }deg, #80808067 ${deg * 360}deg
       )`,
         }}
       >

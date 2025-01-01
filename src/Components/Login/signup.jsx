@@ -124,7 +124,7 @@ const Signup = (props) => {
           />
         </div>
         <button type="submit">
-          {status === apiStatus.loading ? "Verifying..." : "sign up"}
+          {status === apiStatus.loading ? "Creating..." : "sign up"}
         </button>
       </form>
       <div>

@@ -87,10 +87,9 @@ const AddSpend = () => {
       if (!error) {
         if (spendname && spendtype && time && amount) {
           setStatus(apiStatus.loading);
-          const data = await fetch(
-            "https://salary-manger-backend.onrender.com/addspend",
-            options
-          );
+          const url = "https://salary-manger-backend.onrender.com/addspend";
+          // const url = "http://localhost:8091/addspend";
+          const data = await fetch(url, options);
 
           if (data.ok) {
             settime(today.toString().split(" ")[4].slice(0, 5));

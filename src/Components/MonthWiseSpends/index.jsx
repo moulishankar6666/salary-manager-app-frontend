@@ -26,7 +26,11 @@ const [presentmonth, , year] = today
 
 const MonthWiseSpends = () => {
   const [monthspends, setMonthspends] = useState([]);
-  const [month, setMonth] = useState(`${year.slice(0, 4)}-${presentmonth}`);
+  const [month, setMonth] = useState(
+    `${year.slice(0, 4)}-${
+      presentmonth.length === 1 ? `0${presentmonth}` : presentmonth
+    }`
+  );
   const [status, setStatus] = useState(apiStatus.Initial);
   const [error, setError] = useState("");
 
@@ -44,11 +48,11 @@ const MonthWiseSpends = () => {
   const getspends = async () => {
     setStatus(apiStatus.loading);
     try {
-      const data = await fetch(
-        `https://salary-manger-backend.onrender.com/monthspends/${month}`,
-        options
-      );
+      // const url = `http://localhost:8091/monthspends/${month}`;
+      const url = `https://salary-manger-backend.onrender.com/monthspends/${month}`;
+      const data = await fetch(url, options);
       const response = await data.json();
+      console.log(response, "month");
       if (data.ok) {
         setMonthspends(response.response);
         setStatus(apiStatus.success);

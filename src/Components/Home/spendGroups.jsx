@@ -56,31 +56,34 @@ const SpendGroups = (props) => {
     return (
       <div
         className="spend-groups-right-container"
+        // style={{
+        //   backgroundImage: `conic-gradient(#2e0776 0deg, #2e0776 ${parseInt(
+        //     deg() * 360
+        //   )}deg , #80808067 ${parseInt(deg() * 360)}deg )`,
+        // }}
         style={
           deg() * 100 < 90
             ? deg() * 100 < 70
               ? {
-                  background: `conic-gradient(
-      #2e0776 ${parseInt(deg() * 360)}deg,
-      #80808067 90deg
-    )`,
+                  backgroundImage: `conic-gradient(#2e0776 0deg, #2e0776 ${parseInt(
+                    deg() * 360
+                  )}deg , #80808067 ${parseInt(deg() * 360)}deg )`,
                 }
               : {
-                  background: `conic-gradient(
-       darkorange ${parseInt(deg() * 360)}deg,
-      #80808067 90deg
-    )`,
+                  backgroundImage: `conic-gradient(darkorange 0deg, darkorange ${parseInt(
+                    deg() * 360
+                  )}deg , #80808067 ${parseInt(deg() * 360)}deg )`,
                 }
             : {
-                background: `conic-gradient(
-        #cd0707 ${parseInt(deg() * 360)}deg,
-        #80808067 90deg
-      )`,
+                backgroundImage: `conic-gradient(#cd0707 0deg, #cd0707 ${parseInt(
+                  deg() * 360
+                )}deg , #80808067 ${parseInt(deg() * 360)}deg )`,
               }
         }
       >
         <div className="spend-groups-right-inner-container">
-          {parseInt(deg() * 100)}
+          {`${parseInt(deg() * 100)}`}
+          <sub>%</sub>
         </div>
       </div>
     );

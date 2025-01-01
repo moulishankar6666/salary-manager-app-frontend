@@ -42,6 +42,7 @@ const Home = () => {
         { signal, ...options }
       );
       const data = await fetchdata.json();
+      console.log(data, "home");
       setUserinfo(data);
       setStatus(apiStatus.success);
     } catch (error) {
@@ -50,7 +51,6 @@ const Home = () => {
       if (error.name === "AbortError") {
         setStatus(apiStatus.failure);
         toast("Please wait...");
-        getData();
       } else {
         toast.error(
           error.message === "Failed to fetch"

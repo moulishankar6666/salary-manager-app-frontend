@@ -37,13 +37,13 @@ const Calendar = () => {
 
   const getDaySpends = async () => {
     setStatus(apiStatus.loading);
+
     try {
-      const data = await fetch(
-        `https://salary-manger-backend.onrender.com/dayspends/${activeDate[2]}`,
-        { signal, ...options }
-      );
+      const url = `https://salary-manger-backend.onrender.com/dayspends/${activeDate[2]}`;
+      // const url = `http://localhost:8091/dayspends/${activeDate[2]}`;
+      const data = await fetch(url, { signal, ...options });
       const response = await data.json();
-      console.log(response);
+      console.log(response, "dates");
       if (data.ok) {
         setDaySpendsList(response.response);
         setStatus(apiStatus.success);
