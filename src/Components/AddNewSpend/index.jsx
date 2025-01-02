@@ -31,21 +31,22 @@ const AddSpend = () => {
 
   const userdatetime = () => {
     const date = today.toLocaleString().split(" ")[0].split("/");
-    const selectedTime = time.split(":");
-    const userSelectedDatetime = new Date(
+    const Time = time.split(":");
+    const selectedDT = new Date(
       date[2].slice(0, 4), //year
       date[0] - 1, //month
       date[1], //date
-      selectedTime[0], //hour
-      selectedTime[1] //minute
+      Time[0], //hour
+      Time[1] //minute
     );
-    const DT = userSelectedDatetime.toString().split(" ");
-    const DTLocal = userSelectedDatetime
-      .toLocaleString()
-      .split(" ")[0]
-      .split("/");
 
-    return `${DTLocal[2].slice(0, 4)}-${DTLocal[0]}-${DTLocal[1]} ${DT[4]}`;
+    const Month = JSON.stringify(selectedDT.getMonth() + 1);
+    const Day = JSON.stringify(selectedDT.getDate());
+    const FullTime = selectedDT.toString().split(" ")[4];
+
+    return `${selectedDT.getFullYear()}-${
+      Month.length === 1 ? `0${Month}` : Month
+    }-${Day.length === 1 ? `0${Day}` : Day} ${FullTime}`;
   };
 
   const datetime = userdatetime();

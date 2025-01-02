@@ -38,9 +38,15 @@ const Calendar = () => {
   const getDaySpends = async () => {
     setStatus(apiStatus.loading);
 
+    const fulldate = new Date(
+      `${activeDate[1]} ${activeDate[2]} ${activeDate[3]}`
+    );
+    const passingData = `${fulldate.getDate()} ${
+      fulldate.getMonth() + 1
+    } ${fulldate.getFullYear()}`;
     try {
-      const url = `https://salary-manger-backend.onrender.com/dayspends/${activeDate[2]}`;
-      // const url = `http://localhost:8091/dayspends/${activeDate[2]}`;
+      const url = `https://salary-manger-backend.onrender.com/dayspends/${passingData}`;
+      // const url = `http://localhost:8091/dayspends/${passingData}`;
       const data = await fetch(url, { signal, ...options });
       const response = await data.json();
       console.log(response, "dates");

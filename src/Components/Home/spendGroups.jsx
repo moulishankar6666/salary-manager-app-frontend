@@ -56,11 +56,6 @@ const SpendGroups = (props) => {
     return (
       <div
         className="spend-groups-right-container"
-        // style={{
-        //   backgroundImage: `conic-gradient(#2e0776 0deg, #2e0776 ${parseInt(
-        //     deg() * 360
-        //   )}deg , #80808067 ${parseInt(deg() * 360)}deg )`,
-        // }}
         style={
           deg() * 100 < 90
             ? deg() * 100 < 70
@@ -106,7 +101,7 @@ const SpendGroups = (props) => {
     );
   };
 
-  const TaskCount = (group) => {
+  const SpendCount = (group) => {
     const { user } = props.data;
     const { Luxury, savings, housespend } = user;
 
@@ -123,22 +118,25 @@ const SpendGroups = (props) => {
   // spend Group
   const eachGroup = (group) => {
     return (
-      <div key={group.groupName} className="spend-groups-container">
-        <div className="spend-groups-left-container">
-          <div className="left-image-container">{group.groupImg}</div>
-          <div className="left-content-container">
-            <p className="group-name">{group.groupName}</p>
-            {status === apiStatus.success ? TaskCount(group) : <Skeleton />}
+      <>
+        <div key={group.groupName} className="spend-groups-container">
+          <div className="spend-groups-left-container">
+            <div className="left-image-container">{group.groupImg}</div>
+            <div className="left-content-container">
+              <p className="group-name">{group.groupName}</p>
+              {status === apiStatus.success ? SpendCount(group) : <Skeleton />}
+            </div>
           </div>
+          {status === apiStatus.success ? success(group.groupName) : loading()}
         </div>
-        {status === apiStatus.success ? success(group.groupName) : loading()}
-      </div>
+      </>
     );
   };
 
   return (
     <div className="spend-groups-main-container">
       <h3>Spend Groups</h3>
+
       {GroupsData.map((group) => eachGroup(group))}
     </div>
   );
