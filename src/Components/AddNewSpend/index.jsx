@@ -24,18 +24,17 @@ const AddSpend = () => {
   const [spendname, setspendname] = useState("");
   const [amount, setamount] = useState("");
   const [time, settime] = useState(today.toString().split(" ")[4].slice(0, 5));
-  const [error, setError] = useState("");
+  const [errortxt, setError] = useState("");
   const [status, setStatus] = useState(apiStatus.Initial);
 
   //converting present time to user selected time
 
   const userdatetime = () => {
-    const date = today.toLocaleString().split(" ")[0].split("/");
     const Time = time.split(":");
     const selectedDT = new Date(
-      date[2].slice(0, 4), //year
-      date[0] - 1, //month
-      date[1], //date
+      today.getFullYear(), //year
+      today.getMonth(), //month
+      today.getDate(), //date
       Time[0], //hour
       Time[1] //minute
     );
@@ -85,7 +84,7 @@ const AddSpend = () => {
   const onSubmitNewSpend = async (e) => {
     e.preventDefault();
     try {
-      if (!error) {
+      if (!errortxt) {
         if (spendname && spendtype && time && amount) {
           setStatus(apiStatus.loading);
           const url = "https://salary-manger-backend.onrender.com/addspend";

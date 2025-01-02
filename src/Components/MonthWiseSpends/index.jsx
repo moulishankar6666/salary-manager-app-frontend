@@ -21,17 +21,13 @@ const apiStatus = {
 
 const today = new Date();
 
-const [presentmonth, , year] = today
-  .toLocaleString()
-  .split(" ")[0]
-  .split("/")
-  .slice(0, 3);
-
 const MonthWiseSpends = () => {
   const [monthspends, setMonthspends] = useState([]);
   const [month, setMonth] = useState(
-    `${year.slice(0, 4)}-${
-      presentmonth.length === 1 ? `0${presentmonth}` : presentmonth
+    `${today.getFullYear()}-${
+      today.getMonth() + 1 < 10
+        ? `0${today.getMonth() + 1}`
+        : today.getMonth() + 1
     }`
   );
   const [status, setStatus] = useState(apiStatus.Initial);
