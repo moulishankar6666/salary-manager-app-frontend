@@ -136,7 +136,6 @@ const SpendGroups = (props) => {
   return (
     <div className="spend-groups-main-container">
       <h3>Spend Groups</h3>
-
       {GroupsData.map((group) => eachGroup(group))}
     </div>
   );

@@ -10,6 +10,8 @@ import Cookies from "js-cookie";
 //hooks
 import { useEffect, useState } from "react";
 
+import toast from "react-hot-toast";
+
 const apiStatus = {
   Initial: "INITIAL",
   loading: "LOADING",
@@ -18,6 +20,7 @@ const apiStatus = {
 };
 
 const today = new Date();
+
 const [presentmonth, , year] = today
   .toLocaleString()
   .split(" ")[0]
@@ -34,6 +37,7 @@ const MonthWiseSpends = () => {
   const [status, setStatus] = useState(apiStatus.Initial);
   const [error, setError] = useState("");
 
+  toast.success(month);
   //options for to get data from database
   const token = Cookies.get("manager");
   const options = {

@@ -83,14 +83,14 @@ const Home = () => {
 
   const user = useMemo(() => {
     return { status, user: userinfo };
-  }, [status, userinfo]);
+  }, [status]);
 
   return (
     <div className="home-main-container">
       <Toaster richColors />
       <Header status={user} />
       <RemaingSalaryPercentage status={user} />
-      <RecentSpends />
+      <RecentSpends status={user} />
       <SpendGroups data={user} />
       <FooterNav />
     </div>
