@@ -188,8 +188,21 @@
   overflow: scroll;
   border-radius: 10px;
 }
-
 .recent-spends-main-container > ul > li {
+  min-width: 300px;
+  height: 100px !important;
+}
+
+.recent-spends-main-container > ul > li > div > .spend-item-name {
+  font-size: 12px;
+  font-weight: 600;
+  height: 23px !important;
+  text-overflow: ellipsis !important;
+  overflow-x: hidden;
+
+  max-width: 190px;
+}
+/* .recent-spends-main-container > ul > li {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -203,7 +216,7 @@
   overflow: scroll;
   padding: 5px 15px;
 }
-/* 
+
 .recent-spends-main-container > ul > li > .spend-type-color {
   display: flex;
   align-items: center;

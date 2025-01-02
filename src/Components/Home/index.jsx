@@ -27,7 +27,6 @@ const Home = () => {
   // const navigate = useNavigate();
   const controller = new AbortController();
   const signal = controller.signal;
-  console.log(status);
 
   const token = Cookies.get("manager");
   const options = {
@@ -49,24 +48,19 @@ const Home = () => {
       if (fetchdata.ok) {
         setUserinfo(data);
         setStatus(apiStatus.success);
-      } else {
-        setStatus(apiStatus.failure);
-        toast.error("something went wrong");
-        // Cookies.remove("manager");
-        // navigate("/login");
       }
     } catch (error) {
-      // setStatus(apiStatus.failure);
-      // if (error.name === "AbortError") {
-      //   setStatus(apiStatus.failure);
-      //   toast("API aborted");
-      // } else {
-      //   toast.error(
-      //     error.message === "Failed to fetch"
-      //       ? "Check your Internet connection"
-      //       : error.message
-      //   );
-      // }
+      setStatus(apiStatus.failure);
+      if (error.name === "AbortError") {
+        setStatus(apiStatus.failure);
+        toast.error("API aborted");
+      } else {
+        toast.error(
+          error.message === "Failed to fetch"
+            ? "Check your Internet connection"
+            : error.message
+        );
+      }
     }
   };
 

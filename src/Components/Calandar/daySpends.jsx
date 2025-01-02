@@ -24,13 +24,8 @@ const DaySpends = (props) => {
       <>
         {dayspendsList.length > 0 ? (
           dayspendsList.map((each) => {
-            const { spendid, spendtype, spendname, amount, datetime } = each;
-            return (
-              <SpendItem
-                key={spendid}
-                item={{ spendtype, spendname, amount, datetime }}
-              />
-            );
+            const { spendid } = each;
+            return <SpendItem key={spendid} item={each} />;
           })
         ) : (
           <li className="center-the-content">No spends in this date</li>

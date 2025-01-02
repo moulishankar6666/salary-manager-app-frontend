@@ -11,13 +11,18 @@ const spendTypeLogo = {
 };
 
 const SpendItem = (props) => {
-  const { spendtype, spendname, amount, datetime } = props.item;
+  const { spendid, spendtype, spendname, amount, datetime } = props.item;
   const date = datetime.split(" ")[0].split("-");
   const time = datetime.split(" ")[1].slice(0, 5);
   const pathname = window.location.pathname.slice(1);
+
+  const deleteItem = () => {
+    try {
+    } catch (error) {}
+  };
   return (
     <li className="spend-item-main-container">
-      <div>
+      <div className="spend-item-left-container">
         <div className="spend-type-color">
           {spendTypeLogo[spendtype]}
           <p>{spendtype}</p>
@@ -28,11 +33,11 @@ const SpendItem = (props) => {
           <p>&#8377; {` ${amount}`}</p>
         </div>
       </div>
-      <div className="edit-button-container">
+      <div className="spend-item-right-container">
         <p>{`${time}`}</p>
 
         {pathname === "/calandar" ? (
-          <button>Delete</button>
+          <button onClick={deleteItem}>Delete</button>
         ) : (
           <div className="show-date">
             <p>

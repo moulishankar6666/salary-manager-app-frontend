@@ -17,13 +17,17 @@ const apiStatus = {
   failure: "FAILURE",
 };
 
-const today = new Date();
-
 const AddSpend = () => {
+  const today = new Date();
+  // states
   const [spendtype, setspendtype] = useState("House Expences");
   const [spendname, setspendname] = useState("");
   const [amount, setamount] = useState("");
-  const [time, settime] = useState(`${today.getHours()}:${today.getMinutes()}`);
+  const [time, settime] = useState(
+    `${today.getHours() < 10 ? `0${today.getHours()}` : today.getHours()}:${
+      today.getMinutes() < 10 ? `0${today.getMinutes()}` : today.getMinutes()
+    }`
+  );
   const [errortxt, setError] = useState("");
   const [status, setStatus] = useState(apiStatus.Initial);
 
