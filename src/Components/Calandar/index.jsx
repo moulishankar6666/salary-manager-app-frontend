@@ -49,7 +49,7 @@ const Calendar = () => {
       // const url = `http://localhost:8091/dayspends/${passingData}`;
       const data = await fetch(url, { signal, ...options });
       const response = await data.json();
-      console.log(response, "dates");
+
       if (data.ok) {
         setDaySpendsList(response.response);
         setStatus(apiStatus.success);
@@ -63,7 +63,7 @@ const Calendar = () => {
     getDaySpends();
     return () => {
       setTimeout(() => {
-        Controller.abort(); // Aborts the operation
+        Controller.abort("component un mounted"); // Aborts the operation
       }, 5000);
     };
   }, [activeDate]);

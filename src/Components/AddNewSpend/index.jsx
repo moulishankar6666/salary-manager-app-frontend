@@ -81,6 +81,9 @@ const AddSpend = () => {
     }
   };
 
+  const controller = new AbortController();
+  const signal = controller.signal;
+
   const onSubmitNewSpend = async (e) => {
     e.preventDefault();
     try {
@@ -89,7 +92,7 @@ const AddSpend = () => {
           setStatus(apiStatus.loading);
           const url = "https://salary-manger-backend.onrender.com/addspend";
           // const url = "http://localhost:8091/addspend";
-          const data = await fetch(url, options);
+          const data = await fetch(url, { signal, ...options });
 
           if (data.ok) {
             settime(today.toString().split(" ")[4].slice(0, 5));

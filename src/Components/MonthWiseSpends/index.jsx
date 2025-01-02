@@ -33,7 +33,6 @@ const MonthWiseSpends = () => {
   const [status, setStatus] = useState(apiStatus.Initial);
   const [error, setError] = useState("");
 
-  toast.success(month);
   //options for to get data from database
   const token = Cookies.get("manager");
   const options = {
@@ -45,14 +44,17 @@ const MonthWiseSpends = () => {
     },
   };
 
+  const controller = new AbortController();
+  const signal = controller.signal;
+
   const getspends = async () => {
     setStatus(apiStatus.loading);
     try {
       // const url = `http://localhost:8091/monthspends/${month}`;
       const url = `https://salary-manger-backend.onrender.com/monthspends/${month}`;
-      const data = await fetch(url, options);
+      const data = await fetch(url, { signal, ...options });
       const response = await data.json();
-      console.log(response, "month");
+
       if (data.ok) {
         setMonthspends(response.response);
         setStatus(apiStatus.success);
@@ -68,6 +70,11 @@ const MonthWiseSpends = () => {
 
   useEffect(() => {
     getspends();
+    return () => {
+      setTimeout(() => {
+        controller.abort("component un mounted"); // Aborts the operation
+      }, 10000);
+    };
   }, [month]);
 
   const loading = () => {

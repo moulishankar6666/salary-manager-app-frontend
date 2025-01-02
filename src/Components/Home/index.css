@@ -189,7 +189,7 @@
   border-radius: 10px;
 }
 
-.recent-spends-main-container > ul > li {
+/* .recent-spends-main-container > ul > li {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -216,4 +216,4 @@
 .spend-name {
   font-size: 15px;
   font-weight: 600;
-}
+} */

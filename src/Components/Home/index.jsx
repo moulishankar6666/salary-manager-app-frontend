@@ -37,7 +37,7 @@ const Home = () => {
   const controller = new AbortController();
   const signal = controller.signal;
 
-  const getData = useCallback(async () => {
+  const getData = async () => {
     try {
       setStatus(apiStatus.loading);
       const url = "https://salary-manger-backend.onrender.com/profile";
@@ -45,22 +45,22 @@ const Home = () => {
 
       const fetchdata = await fetch(url, { signal, ...options });
       const data = await fetchdata.json();
-      console.log(data, "home");
+      console.log(data);
+
       if (fetchdata.ok) {
         setUserinfo(data);
         setStatus(apiStatus.success);
       } else {
-        toast.error(data.error);
+        setStatus(apiStatus.failure);
+        toast.error("something went wrong");
         // Cookies.remove("manager");
         // navigate("/login");
       }
     } catch (error) {
       setStatus(apiStatus.failure);
-
       if (error.name === "AbortError") {
         setStatus(apiStatus.failure);
-        toast("Please wait...");
-        navigate("/login");
+        toast("API aborted");
       } else {
         toast.error(
           error.message === "Failed to fetch"
@@ -69,15 +69,12 @@ const Home = () => {
         );
       }
     }
-  }, []);
+  };
 
   useEffect(() => {
     getData();
-
     return () => {
-      setTimeout(() => {
-        controller.abort(); // Aborts the operation
-      }, 10000);
+      controller.abort("component un mounted"); // Aborts the operation
     };
   }, []);
 
@@ -90,7 +87,7 @@ const Home = () => {
       <Toaster richColors />
       <Header status={user} />
       <RemaingSalaryPercentage status={user} />
-      <RecentSpends status={user} />
+      <RecentSpends data={user} />
       <SpendGroups data={user} />
       <FooterNav />
     </div>
