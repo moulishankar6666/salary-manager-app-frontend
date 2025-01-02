@@ -1,5 +1,6 @@
 .spend-item-main-container {
   width: 100%;
+  min-height: 103px;
   border-radius: 10px;
   padding: 10px 20px;
   text-align: center;
@@ -9,7 +10,9 @@
   align-items: start;
   background-color: var(--card-bg);
   gap: 15px;
-  border: solid blue;
+  /* box-shadow: inset 3px 3px 10px 3px #605f5f86,
+    inset -3px -3px 10px 3px #acaaaa90; */
+  overflow-x: scroll;
 }
 .spend-item-main-container > div {
   width: 100%;
@@ -19,7 +22,6 @@
   align-items: start;
   gap: 10px;
   flex-grow: 2;
-  border: solid orange;
 }
 .spend-item-main-container > div > .spend-item-name {
   width: 100%;
@@ -45,14 +47,13 @@
   gap: 4px;
 }
 .spend-item-main-container > .edit-button-container {
-  height: 83px;
+  height: 105px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: end;
   flex-grow: 1;
   width: 150px;
-  border: solid red;
 }
 .spend-item-main-container > .edit-button-container > p {
   font-weight: 500;

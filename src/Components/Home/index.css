@@ -189,18 +189,21 @@
   border-radius: 10px;
 }
 
-/* .recent-spends-main-container > ul > li {
+.recent-spends-main-container > ul > li {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
   gap: 8px;
   background-color: var(--card-bg);
   color: #000;
   border-radius: 10px;
   min-width: 250px;
+  height: 130px;
+  overflow: scroll;
   padding: 5px 15px;
 }
-
+/* 
 .recent-spends-main-container > ul > li > .spend-type-color {
   display: flex;
   align-items: center;

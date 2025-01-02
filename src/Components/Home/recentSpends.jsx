@@ -5,52 +5,33 @@ import Loader from "../Loader";
 // import { FaHome } from "react-icons/fa";
 
 const RecentSpends = (props) => {
-  const { user, status } = props.data;
-  const { userSpends } = user;
+  const { user, getData } = props.data;
+  const { status } = user;
+  const { userSpends } = user.user;
+
   return (
     <div className="recent-spends-main-container">
       <h3>Recent Spends</h3>
       <ul>
         {status === "SUCCESS" ? (
-          userSpends.map((item) => <SpendItem item={item} />)
-        ) : (
-          <div className="center-the-content">
+          userSpends.map((each) => {
+            const { spendid, spendtype, spendname, amount, datetime } = each;
+            return (
+              <SpendItem
+                key={spendid}
+                item={{ spendtype, spendname, amount, datetime }}
+              />
+            );
+          })
+        ) : status === "LOADING" ? (
+          <li className="center-the-content">
             <Loader />
-          </div>
+          </li>
+        ) : (
+          <li className="center-the-content">
+            <button onClick={getData}>Retry</button>
+          </li>
         )}
-        {/* <li>
-          <div className="spend-type-color">
-            <p>Savings</p>
-            <MdSavings />
-          </div>
-          <p className="spend-name">Invested in SIP</p>
-          <div className="spend-amount">
-            <p>5000</p>
-            <p>25%</p>
-          </div>
-        </li>
-        <li>
-          <div className="spend-type-color">
-            <p>Savings</p>
-            <MdSavings />
-          </div>
-          <p className="spend-name">Invested in SIP</p>
-          <div className="spend-amount">
-            <p>5000</p>
-            <p>25%</p>
-          </div>
-        </li>
-        <li>
-          <div className="spend-type-color">
-            <p>Savings</p>
-            <MdSavings />
-          </div>
-          <p className="spend-name">Invested in SIP</p>
-          <div className="spend-amount">
-            <p>5000</p>
-            <p>25%</p>
-          </div>
-        </li> */}
       </ul>
     </div>
   );

@@ -24,7 +24,10 @@ const Home = () => {
   const [userinfo, setUserinfo] = useState({});
   const [status, setStatus] = useState(apiStatus.Initial);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const controller = new AbortController();
+  const signal = controller.signal;
+  console.log(status);
 
   const token = Cookies.get("manager");
   const options = {
@@ -33,9 +36,6 @@ const Home = () => {
       authorization: `Bearer ${token}`,
     },
   };
-
-  const controller = new AbortController();
-  const signal = controller.signal;
 
   const getData = async () => {
     try {
@@ -56,37 +56,37 @@ const Home = () => {
         // navigate("/login");
       }
     } catch (error) {
-      setStatus(apiStatus.failure);
-      if (error.name === "AbortError") {
-        setStatus(apiStatus.failure);
-        toast("API aborted");
-      } else {
-        toast.error(
-          error.message === "Failed to fetch"
-            ? "Check your Internet connection"
-            : error.message
-        );
-      }
+      // setStatus(apiStatus.failure);
+      // if (error.name === "AbortError") {
+      //   setStatus(apiStatus.failure);
+      //   toast("API aborted");
+      // } else {
+      //   toast.error(
+      //     error.message === "Failed to fetch"
+      //       ? "Check your Internet connection"
+      //       : error.message
+      //   );
+      // }
     }
   };
 
   useEffect(() => {
     getData();
     return () => {
-      controller.abort("component un mounted"); // Aborts the operation
+      setTimeout(() => {
+        controller.abort("component un mounted"); // Aborts the operation
+      }, 5000);
     };
   }, []);
 
-  const user = useMemo(() => {
-    return { status, user: userinfo };
-  }, [status]);
+  const user = { status, user: userinfo };
 
   return (
     <div className="home-main-container">
       <Toaster richColors />
       <Header status={user} />
       <RemaingSalaryPercentage status={user} />
-      <RecentSpends data={user} />
+      <RecentSpends data={{ getData, user }} />
       <SpendGroups data={user} />
       <FooterNav />
     </div>

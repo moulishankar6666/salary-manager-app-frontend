@@ -23,7 +23,7 @@ const AddSpend = () => {
   const [spendtype, setspendtype] = useState("House Expences");
   const [spendname, setspendname] = useState("");
   const [amount, setamount] = useState("");
-  const [time, settime] = useState(today.toString().split(" ")[4].slice(0, 5));
+  const [time, settime] = useState(`${today.getHours()}:${today.getMinutes()}`);
   const [errortxt, setError] = useState("");
   const [status, setStatus] = useState(apiStatus.Initial);
 

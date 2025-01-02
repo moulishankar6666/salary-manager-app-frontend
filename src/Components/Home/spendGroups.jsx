@@ -7,18 +7,21 @@ import Skeleton from "../Loader/skeletonLoading";
 
 const GroupsData = [
   {
+    id: 1,
     groupName: "House Expences",
     groupImg: <FaHome />,
     noofSpends: 23,
     spendTypeImg: "path",
   },
   {
+    id: 2,
     groupName: "Savings",
     groupImg: <MdSavings />,
     noofSpends: 2,
     spendTypeImg: "path",
   },
   {
+    id: 3,
     groupName: "Luxury",
     groupImg: <IoFastFood />,
     noofSpends: 15,
@@ -117,19 +120,18 @@ const SpendGroups = (props) => {
 
   // spend Group
   const eachGroup = (group) => {
+    const { id } = group;
     return (
-      <>
-        <div key={group.groupName} className="spend-groups-container">
-          <div className="spend-groups-left-container">
-            <div className="left-image-container">{group.groupImg}</div>
-            <div className="left-content-container">
-              <p className="group-name">{group.groupName}</p>
-              {status === apiStatus.success ? SpendCount(group) : <Skeleton />}
-            </div>
+      <div key={id} className="spend-groups-container">
+        <div className="spend-groups-left-container">
+          <div className="left-image-container">{group.groupImg}</div>
+          <div className="left-content-container">
+            <p className="group-name">{group.groupName}</p>
+            {status === apiStatus.success ? SpendCount(group) : <Skeleton />}
           </div>
-          {status === apiStatus.success ? success(group.groupName) : loading()}
         </div>
-      </>
+        {status === apiStatus.success ? success(group.groupName) : loading()}
+      </div>
     );
   };
 
