@@ -45,7 +45,6 @@ const Home = () => {
 
       const fetchdata = await fetch(url, { signal, ...options });
       const data = await fetchdata.json();
-      console.log(data);
 
       if (fetchdata.ok) {
         setUserinfo(data);
