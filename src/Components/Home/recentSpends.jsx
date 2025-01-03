@@ -4,16 +4,22 @@ import Loader from "../Loader";
 // import { IoFastFood } from "react-icons/io5";
 // import { FaHome } from "react-icons/fa";
 
+const apiStatus = {
+  Initial: "INITIAL",
+  loading: "LOADING",
+  success: "SUCCESS",
+  failure: "FAILURE",
+};
+
 const RecentSpends = (props) => {
   const { user, getData } = props.data;
   const { status } = user;
   const { userSpends } = user.user;
 
-  return (
-    <div className="recent-spends-main-container">
-      <h3>Recent Spends</h3>
-      <ul>
-        {status === "SUCCESS" && userSpends.length > 0 ? (
+  const onSuccess = () => {
+    return (
+      <>
+        {userSpends.length > 0 ? (
           userSpends.map((each) => {
             const { spendid, spendtype, spendname, amount, datetime } = each;
             return (
@@ -23,16 +29,46 @@ const RecentSpends = (props) => {
               />
             );
           })
-        ) : status === "LOADING" ? (
-          <li className="center-the-content">
-            <Loader />
-          </li>
         ) : (
           <li className="center-the-content">
-            <button onClick={getData}>Retry</button>
+            <p>No recent spends</p>
           </li>
         )}
-      </ul>
+      </>
+    );
+  };
+  const onLoader = () => {
+    return (
+      <li className="center-the-content">
+        <Loader />
+      </li>
+    );
+  };
+  const onFailure = () => {
+    return (
+      <li className="center-the-content">
+        <button onClick={getData}>Retry</button>
+      </li>
+    );
+  };
+
+  const onrender = () => {
+    switch (status) {
+      case apiStatus.success:
+        return onSuccess();
+      case apiStatus.loading:
+        return onLoader();
+      case apiStatus.failure:
+        return onFailure();
+      default:
+        break;
+    }
+  };
+
+  return (
+    <div className="recent-spends-main-container">
+      <h3>Recent Spends</h3>
+      <ul>{onrender()}</ul>
     </div>
   );
 };

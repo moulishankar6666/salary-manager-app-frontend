@@ -9,9 +9,7 @@ import FooterNav from "../Footer";
 import toast, { Toaster } from "react-hot-toast";
 import Cookies from "js-cookie";
 
-import { useNavigate } from "react-router-dom";
-
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 const apiStatus = {
   Initial: "INITIAL",
