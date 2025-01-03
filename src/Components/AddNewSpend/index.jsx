@@ -94,8 +94,8 @@ const AddSpend = () => {
       if (!errortxt) {
         if (spendname && spendtype && time && amount) {
           setStatus(apiStatus.loading);
-          const url = "https://salary-manger-backend.onrender.com/addspend";
-          // const url = "http://localhost:8091/addspend";
+          // const url = "https://salary-manger-backend.onrender.com/addspend";
+          const url = "http://localhost:8091/addspend";
           const data = await fetch(url, { signal, ...options });
 
           if (data.ok) {

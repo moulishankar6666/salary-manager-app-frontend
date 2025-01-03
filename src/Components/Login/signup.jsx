@@ -38,14 +38,12 @@ const Signup = (props) => {
     };
     try {
       setStatus(apiStatus.loading);
-
-      const response = await fetch(
-        "https://salary-manger-backend.onrender.com/signup",
-        options
-      );
+      // const url="https://salary-manger-backend.onrender.com/signup"
+      const url = "http://localhost:8091/signup";
+      const response = await fetch(url, options);
 
       const data = await response.json();
-      console.log(data);
+
       if (response.ok) {
         setStatus(apiStatus.success);
         toast.success(data.response);
