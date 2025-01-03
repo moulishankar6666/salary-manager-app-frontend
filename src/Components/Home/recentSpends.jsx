@@ -13,7 +13,7 @@ const RecentSpends = (props) => {
     <div className="recent-spends-main-container">
       <h3>Recent Spends</h3>
       <ul>
-        {status === "SUCCESS" ? (
+        {status === "SUCCESS" && userSpends.length > 0 ? (
           userSpends.map((each) => {
             const { spendid, spendtype, spendname, amount, datetime } = each;
             return (
