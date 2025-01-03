@@ -38,8 +38,8 @@ const Signup = (props) => {
     };
     try {
       setStatus(apiStatus.loading);
-      // const url="https://salary-manger-backend.onrender.com/signup"
-      const url = "http://localhost:8091/signup";
+      const url = "https://salary-manger-backend.onrender.com/signup";
+      // const url = "http://localhost:8091/signup";
       const response = await fetch(url, options);
 
       const data = await response.json();

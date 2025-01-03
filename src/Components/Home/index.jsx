@@ -44,23 +44,22 @@ const Home = () => {
   const getData = async () => {
     try {
       setStatus(apiStatus.loading);
-      // const url = `https://salary-manger-backend.onrender.com/profile/${
-      //   (month, year)
-      // }`;
-      const url = `http://localhost:8091/profile/${month}-${year}`;
+      const url = `https://salary-manger-backend.onrender.com/profile/${
+        (month, year)
+      }`;
+      // const url = `http://localhost:8091/profile/${month}-${year}`;
 
       const fetchdata = await fetch(url, { signal, ...options });
       const data = await fetchdata.json();
-      console.log(data);
 
       if (fetchdata.ok) {
         setUserinfo(data);
-        // setStatus(apiStatus.success);
+        setStatus(apiStatus.success);
       }
     } catch (error) {
       setStatus(apiStatus.failure);
       if (error.name === "AbortError") {
-        // setStatus(apiStatus.failure);
+        setStatus(apiStatus.failure);
         toast.error("API aborted");
       } else {
         toast.error(
