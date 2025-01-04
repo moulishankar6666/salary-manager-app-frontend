@@ -1,12 +1,15 @@
 import { IoIosMore } from "react-icons/io";
 import { Link } from "react-router-dom";
-
+import { Popup } from "reactjs-popup";
+import RuleImg from "../assets/budget rule.jpg";
 const apiStatus = {
   Initial: "INITIAL",
   loading: "LOADING",
   success: "SUCCESS",
   failure: "FAILURE",
 };
+const today = new Date();
+const month = today.toLocaleString("default", { month: "long" });
 
 const RemaingSalaryPercentage = (props) => {
   const { status, user } = props.status;
@@ -50,11 +53,40 @@ const RemaingSalaryPercentage = (props) => {
     );
   };
 
+  const salaryDivision = () => {
+    return (
+      <div className="salary-division-popup">
+        <Popup
+          modal
+          trigger={
+            <button title="show salary division" aria-label="Aria moreinfo">
+              <IoIosMore />
+            </button>
+          }
+        >
+          {(close) => (
+            <div>
+              <div className="popup-main-container">
+                <img src={RuleImg} alt="buget rule" />
+                <p>
+                  <b>*</b>Try to implement 90% this Budget Rule
+                </p>
+                <button className="popup-close" onClick={close}>
+                  close
+                </button>
+              </div>
+            </div>
+          )}
+        </Popup>
+      </div>
+    );
+  };
+
   return (
     <div className="remaing-salary-percentage-main-container">
       <div className="remaing-salary-container-content">
         <p>
-          This month your <br /> Spended salary %
+          <b>{month}</b> month your <br /> Spended salary %
         </p>
         <Link className="link" to="/monthlyspends">
           <button>ViewAll Spends</button>
@@ -62,9 +94,7 @@ const RemaingSalaryPercentage = (props) => {
       </div>
       <div className="salary-percentage-main-container">
         {status === apiStatus.success ? success() : loading()}
-        <button aria-label="Aria moreinfo">
-          <IoIosMore />
-        </button>
+        {salaryDivision()}
       </div>
     </div>
   );

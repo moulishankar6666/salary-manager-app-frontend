@@ -72,8 +72,10 @@
   color: #fff;
   font-weight: 500;
 }
-
-.salary-percentage-main-container > button {
+.salary-percentage-main-container > .salary-division-popup {
+  align-self: flex-start;
+}
+.salary-percentage-main-container > .salary-division-popup > button {
   background-color: #ffffff68;
   height: 20px;
   padding: 0px 3px 1px 3px;
@@ -84,6 +86,38 @@
   font-size: 16px;
   align-self: flex-start;
   cursor: pointer;
+}
+.popup-main-container {
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: scroll;
+  gap: 15px;
+}
+.popup-main-container > img {
+  height: 300px;
+  width: 400px;
+  border-radius: 10px;
+}
+.popup-main-container > p {
+  font-size: 13px;
+  font-weight: bold;
+  color: red;
+}
+
+.popup-main-container > button {
+  background-color: var(--background-color);
+  color: #fff;
+  font-weight: 600;
+  width: 100px;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
 }
 
 /* spendGroups.jsx file styling */
