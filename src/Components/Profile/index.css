@@ -1,7 +1,7 @@
 .profile-main-container {
   height: calc(100vh - 18px);
   width: calc(100vw - 18px);
-  border: solid red;
+  /* border: solid red; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@
   width: 100px;
 }
 .profile-user-info-container > p {
-  font-size: 19px;
+  font-size: 16px;
 }
 .profile-user-info-container > button {
   align-self: center;
