@@ -11,6 +11,23 @@
   height: 130px;
   background: var(--background-container-color);
   margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  overflow: hidden;
+
+  transition: height linear 0.5s;
+  &:hover {
+    height: 180px;
+  }
+}
+
+.remaing-salary-percentage-container {
+  width: 100%;
+  height: 130px;
+  background: transparent;
   padding: 22px 15px;
   display: flex;
   flex-direction: row;
@@ -102,6 +119,7 @@
   height: 300px;
   width: 400px;
   border-radius: 10px;
+  margin: 0px 20px;
 }
 .popup-main-container > p {
   font-size: 13px;
@@ -119,6 +137,30 @@
   outline: none;
   border-radius: 10px;
 }
+.total-salary-spended {
+  margin-bottom: 10px;
+  width: 90%;
+  height: 30px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+  background-color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+}
+.total-salary-spended > p {
+  height: 20px;
+  transition: transform linear 0.5s;
+  text-align: center;
+  font-weight: 600;
+  line-height: 23px;
+}
+
+.total-salary-spended:hover > p {
+  transform: translateY(-25px);
+}
 
 /* spendGroups.jsx file styling */
 
@@ -134,16 +176,46 @@
   font-weight: bolder;
 }
 
-.spend-groups-sup-container {
-  border: solid #000 1px;
+/* .spend-groups-sup-container {
+  border: solid red 2px;
+} */
+.spend-each-group-main-container {
+  border: solid black 1px;
+  border-radius: 15px;
+  height: 73px;
+  transition: height linear 0.5s;
+  overflow: hidden;
+  &:hover {
+    height: 115px;
+  }
 }
 
+.spend-each-group-main-container > .limit-usage-container {
+  margin: 10px 3% 2px;
+  width: 94%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  overflow: hidden;
+  background-color: var(--background-color);
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.spend-each-group-main-container > .limit-usage-container > p {
+  height: 20px;
+  transition: transform linear 0.5s;
+  text-align: center;
+}
+.spend-each-group-main-container > .limit-usage-container:hover > p {
+  transform: translateY(-22px);
+}
 .spend-groups-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 9px 15px;
-  border: solid black 1px;
   border-radius: 15px;
 }
 

@@ -121,16 +121,50 @@ const SpendGroups = (props) => {
   // spend Group
   const eachGroup = (group) => {
     const { id } = group;
-    return (
-      <div key={id} className="spend-groups-container">
-        <div className="spend-groups-left-container">
-          <div className="left-image-container">{group.groupImg}</div>
-          <div className="left-content-container">
-            <p className="group-name">{group.groupName}</p>
-            {status === apiStatus.success ? SpendCount(group) : <Skeleton />}
-          </div>
+
+    const spendsByGroup = () => {
+      const { user } = props.data;
+      const { Luxury, savings, housespend, userInfo } = user;
+      const { salary } = userInfo;
+      const limit =
+        group.groupName === GroupsData[0].groupName
+          ? 50
+          : group.groupName === GroupsData[1].groupName
+          ? 20
+          : 30;
+      const spendedAmount =
+        group.groupName === GroupsData[0].groupName
+          ? housespend[0]
+          : group.groupName === GroupsData[1].groupName
+          ? savings[0]
+          : Luxury[0];
+      return (
+        <div className="limit-usage-container">
+          <p>
+            TOTAL LIMIT {limit}% <br />
+            {(salary / 100) * limit} /-
+          </p>
+          <p>
+            TOTAL SPENDED <br />
+            {spendedAmount} /-
+          </p>
         </div>
-        {status === apiStatus.success ? success(group.groupName) : loading()}
+      );
+    };
+
+    return (
+      <div key={id} className="spend-each-group-main-container">
+        <div className="spend-groups-container">
+          <div className="spend-groups-left-container">
+            <div className="left-image-container">{group.groupImg}</div>
+            <div className="left-content-container">
+              <p className="group-name">{group.groupName}</p>
+              {status === apiStatus.success ? SpendCount(group) : <Skeleton />}
+            </div>
+          </div>
+          {status === apiStatus.success ? success(group.groupName) : loading()}
+        </div>
+        {status === apiStatus.success ? spendsByGroup() : <Skeleton />}
       </div>
     );
   };

@@ -82,20 +82,40 @@ const RemaingSalaryPercentage = (props) => {
     );
   };
 
+  const showTotalAmount = () => {
+    const { totalamount, userInfo } = user;
+    const { salary } = userInfo;
+    return (
+      <div className="total-salary-spended">
+        <p>
+          SALARY <br />
+          {salary} /-
+        </p>
+        <p>
+          TOTAL SPENDED <br />
+          {totalamount[0]} /-
+        </p>
+      </div>
+    );
+  };
+
   return (
     <div className="remaing-salary-percentage-main-container">
-      <div className="remaing-salary-container-content">
-        <p>
-          <b>{month}</b> month your <br /> Spended salary %
-        </p>
-        <Link className="link" to="/monthlyspends">
-          <button>ViewAll Spends</button>
-        </Link>
+      <div className="remaing-salary-percentage-container">
+        <div className="remaing-salary-container-content">
+          <p>
+            <b>{month}</b> month your <br /> Spended salary %
+          </p>
+          <Link className="link" to="/monthlyspends">
+            <button>ViewAll Spends</button>
+          </Link>
+        </div>
+        <div className="salary-percentage-main-container">
+          {status === apiStatus.success ? success() : loading()}
+          {salaryDivision()}
+        </div>
       </div>
-      <div className="salary-percentage-main-container">
-        {status === apiStatus.success ? success() : loading()}
-        {salaryDivision()}
-      </div>
+      {status === apiStatus.success && showTotalAmount()}
     </div>
   );
 };
