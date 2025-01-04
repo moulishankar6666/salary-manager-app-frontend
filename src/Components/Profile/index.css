@@ -3,8 +3,14 @@
   width: calc(100vw - 18px);
   /* border: solid red; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+.profile-title {
+  position: absolute;
+  top: 20px;
 }
 .profile-user-info-container {
   display: flex;
@@ -27,7 +33,7 @@
 .profile-user-info-container > p {
   font-size: 16px;
 }
-.profile-user-info-container > button {
+.profile-main-container > button {
   align-self: center;
   margin-top: 15px;
   width: 130px;

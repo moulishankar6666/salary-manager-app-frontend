@@ -8,6 +8,8 @@ import Cookies from "js-cookie";
 import { useNavigate, Navigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
+import Loader from "../Loader";
+
 import "./index.css";
 
 const Profile = () => {
@@ -15,14 +17,15 @@ const Profile = () => {
   const data = useSelector((state) => state.userinfo.value.data);
   const navigate = useNavigate();
 
+  const signout = () => {
+    Cookies.remove("manager");
+    navigate("/login");
+    toast.success("Sign Out Successfully");
+  };
+
   const onSuccess = () => {
     const { userInfo } = data;
     const { fullname, username, salary } = userInfo;
-    const signout = () => {
-      Cookies.remove("manager");
-      navigate("/login");
-      toast.success("Sign Out Successfully");
-    };
 
     return (
       <div className="profile-user-info-container">
@@ -37,7 +40,6 @@ const Profile = () => {
         <p>
           <b>Month-salary :</b> {salary}
         </p>
-        <button onClick={signout}>Sign Out</button>
       </div>
     );
   };
@@ -45,7 +47,9 @@ const Profile = () => {
   return (
     <div className="profile-main-container">
       <Toaster />
-      {status === "SUCCESS" ? onSuccess() : <Navigate to="/home" />}
+      <h1 className="profile-title">Your Profile</h1>
+      {status === "SUCCESS" ? onSuccess() : <Loader />}
+      <button onClick={signout}>Sign Out</button>
       <FooterNav />
     </div>
   );
