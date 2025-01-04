@@ -93,7 +93,7 @@ const RemaingSalaryPercentage = (props) => {
         </p>
         <p>
           TOTAL SPENDED <br />
-          {totalamount[0]} /-
+          {totalamount[0] > 0 ? totalamount[0] : 0} /-
         </p>
       </div>
     );

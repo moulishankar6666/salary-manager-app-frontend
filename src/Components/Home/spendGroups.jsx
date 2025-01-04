@@ -146,7 +146,7 @@ const SpendGroups = (props) => {
           </p>
           <p>
             TOTAL SPENDED <br />
-            {spendedAmount} /-
+            {spendedAmount > 0 ? spendedAmount : 0} /-
           </p>
         </div>
       );
