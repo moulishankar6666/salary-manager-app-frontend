@@ -20,7 +20,7 @@ const FooterNav = () => {
             className={path === "/home" ? "active" : "inactive"}
           >
             <Link aria-label="used to navigate" className="link" to="/home ">
-              <FaHome size={22} />
+              <FaHome size={25} />
             </Link>
           </button>
         </li>
@@ -64,7 +64,7 @@ const FooterNav = () => {
             className={path === "/profile" ? "active" : "inactive"}
           >
             <Link aria-label="used to navigate" className="link" to="/profile">
-              <IoPersonCircle size={25} />
+              <IoPersonCircle size={30} />
             </Link>
           </button>
         </li>

@@ -36,7 +36,7 @@ const SpendItem = (props) => {
       <div className="spend-item-right-container">
         <p>{`${time}`}</p>
 
-        {pathname === "/calandar" ? (
+        {pathname === "calandar" ? (
           <button onClick={deleteItem}>Delete</button>
         ) : (
           <div className="show-date">

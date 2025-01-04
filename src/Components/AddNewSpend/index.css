@@ -1,10 +1,16 @@
 .add-new-spend-main-container {
   height: calc(100vh - 60px);
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
+  align-items: start;
   gap: 20px;
   padding: 0px 10px;
+  overflow: scroll;
+}
+@media screen and (min-height: 600px) {
+  .add-new-spend-main-container {
+    align-items: center;
+  }
 }
 .add-new-spend-main-container > img {
   order: -1;
@@ -28,9 +34,9 @@
   background-color: var(--card-bg);
   border-radius: 16px;
   width: 90%;
-  min-height: 85%;
+  height: 550px;
   padding: 20px;
-  flex-shrink: 2;
+  overflow: scroll;
 }
 .add-new-spend-main-container > form > h1 {
   font-size: 15px;
@@ -48,7 +54,7 @@
 .add-new-spend-main-container > form > div .input {
   outline: none;
   border: none;
-  padding: 3px 10px;
+  padding: 8px 10px;
   border-radius: 10px;
   width: 100%;
 }

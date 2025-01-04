@@ -6,6 +6,9 @@ import SpendGroups from "./spendGroups";
 import RecentSpends from "./recentSpends";
 import FooterNav from "../Footer";
 
+import { useSelector, useDispatch } from "react-redux";
+import { addUserinfo, updateStatus } from "../../Redux/userInfoSlice";
+
 import toast, { Toaster } from "react-hot-toast";
 import Cookies from "js-cookie";
 
@@ -19,10 +22,17 @@ const apiStatus = {
 };
 
 const Home = () => {
-  const [userinfo, setUserinfo] = useState({});
-  const [status, setStatus] = useState(apiStatus.Initial);
+  const userinfo = useSelector((state) => state.userinfo.value.data);
+  const status = useSelector((state) => state.userinfo.value.status);
+  // const [userinfo, setUserinfo] = useState(
+  //   useSelector((state) => state.userinfo.value.data)
+  // );
+  // const [status, setStatus] = useState(
+  //   useSelector((state) => state.userinfo.value.status)
+  // );
 
-  // const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const controller = new AbortController();
   const signal = controller.signal;
 
@@ -41,20 +51,20 @@ const Home = () => {
 
   const getData = async () => {
     try {
-      setStatus(apiStatus.loading);
+      dispatch(updateStatus(apiStatus.loading));
       const url = `https://salary-manger-backend.onrender.com/profile/${month}-${year}`;
       // const url = `http://localhost:8091/profile/${month}-${year}`;
 
       const fetchdata = await fetch(url, { signal, ...options });
       const data = await fetchdata.json();
       if (fetchdata.ok) {
-        setUserinfo(data);
-        setStatus(apiStatus.success);
+        dispatch(addUserinfo(data));
+        dispatch(updateStatus(apiStatus.success));
       }
     } catch (error) {
-      setStatus(apiStatus.failure);
+      dispatch(updateStatus(apiStatus.failure));
       if (error.name === "AbortError") {
-        setStatus(apiStatus.failure);
+        dispatch(updateStatus(apiStatus.failure));
         toast.error("API aborted");
       } else {
         toast.error(
@@ -82,7 +92,7 @@ const Home = () => {
       <Toaster richColors />
       <Header status={user} />
       <RemaingSalaryPercentage status={user} />
-      <RecentSpends data={{ getData, user }} />
+      <RecentSpends data={{ user, getData }} />
       <SpendGroups data={user} />
       <FooterNav />
     </div>

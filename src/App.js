@@ -1,5 +1,6 @@
 import "./App.css";
 
+import { Toaster } from "react-hot-toast";
 import { Routes, Route, Navigate } from "react-router";
 
 import Home from "./Components/Home";
@@ -9,7 +10,6 @@ import MonthWiseSpends from "./Components/MonthWiseSpends";
 import Login from "./Components/Login";
 import Profile from "./Components/Profile";
 import ProctedRoute from "./Components/ProctedRoute";
-import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
